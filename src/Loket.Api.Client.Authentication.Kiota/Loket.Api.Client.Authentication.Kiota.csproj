@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Loket Kiota AuthenticationProvider for LoketServiceClient</Description>
+    <TargetFrameworks>netstandard2.1;net8.0</TargetFrameworks>
+    <PackageTags>Loket;Loket;C#;APIs;Client;Authentication;Tokens;RefreshToken;AccessToken;Kiota;IAuthenticationProvider;AuthenticationProvider</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Loket.Api.Client.Authentication\Loket.Api.Client.Authentication.csproj" />
+    <ProjectReference Include="..\Loket.Api.Client\Loket.Api.Client.csproj" />
+  </ItemGroup>
+
+</Project>

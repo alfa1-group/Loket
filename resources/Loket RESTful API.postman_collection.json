@@ -1,0 +1,2074 @@
+{
+  "info": {
+    "_postman_id": "8f13f3f1-922e-4726-808c-df62cbea8f35",
+    "name": "Getting Started with the Loket RESTful API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "939681",
+    "_collection_link": "https://go.postman.co/collection/939681-8f13f3f1-922e-4726-808c-df62cbea8f35?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "OAuth2 code flow",
+      "item": [
+        {
+          "name": "README (see request body)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "Technical documentation regarding OAuth2 code flow: https://developer.loket.nl/OAuthCode \r\n\r\nPlease note that you will need to have both client and user credentials to perform these actions.\r\n\r\nIf you do not have these credentials yet, please check the information on https://www.loket.nl/koppelen-met-loket/\r\n"
+            },
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "1. Code flow authorization url: please copy-paste the resulting url in your internet browser",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{AuthenticationServerUrl}}/authorize?client_id={{Client_Id}}&redirect_uri={{Redirect_Uri}}&response_type=code&scope=all&state=1234",
+              "host": [
+                "{{AuthenticationServerUrl}}"
+              ],
+              "path": [
+                "authorize"
+              ],
+              "query": [
+                {
+                  "key": "client_id",
+                  "value": "{{Client_Id}}"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "{{Redirect_Uri}}"
+                },
+                {
+                  "key": "response_type",
+                  "value": "code"
+                },
+                {
+                  "key": "scope",
+                  "value": "all"
+                },
+                {
+                  "key": "state",
+                  "value": "1234"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. Acquire refresh_token using authorization_code (please store your refresh_token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = JSON.parse(responseBody);",
+                  "if(data.refresh_token !== null)",
+                  "{",
+                  "postman.setEnvironmentVariable(\"refresh_token\", data.refresh_token);",
+                  "}",
+                  "postman.setEnvironmentVariable(\"token\", data.access_token);",
+                  "",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "grant_type=authorization_code&code={{Code}}&redirect_uri={{Redirect_Uri}}&client_id={{Client_Id}}&client_secret={{Client_Secret}}"
+            },
+            "url": {
+              "raw": "{{AuthenticationServerUrl}}/token",
+              "host": [
+                "{{AuthenticationServerUrl}}"
+              ],
+              "path": [
+                "token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. Acquire access_token using refresh_token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"token\", data.access_token);",
+                  "",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "grant_type=refresh_token&redirect_uri={{Redirect_Uri}}&client_id={{Client_Id}}&client_secret={{Client_Secret}}&refresh_token={{refresh_token}}"
+            },
+            "url": {
+              "raw": "{{AuthenticationServerUrl}}/token",
+              "host": [
+                "{{AuthenticationServerUrl}}"
+              ],
+              "path": [
+                "token"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Employer",
+      "item": [
+        {
+          "name": "GetEmployersByUserId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"employerId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetEmployersMinimizedByUserId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"employerId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/minimized",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "minimized"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetEmployersMinimizedByUserId (with some example parameters)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"employerId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "disabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/minimized?orderBy=companyName&filter=address.city eq 'Tilburg'",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "minimized"
+              ],
+              "query": [
+                {
+                  "key": "orderBy",
+                  "value": "companyName"
+                },
+                {
+                  "key": "filter",
+                  "value": "address.city eq 'Tilburg'"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAuthorizationsByEmployerId (may be used to check if user has required authorizations within this context)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/{{employerId}}/authorizations",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "{{employerId}}",
+                "authorizations"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Employee",
+      "item": [
+        {
+          "name": "GetEmployeesByEmployerId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"employeeId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-12-31"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/{{employerId}}/employees",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "{{employerId}}",
+                "employees"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetEmployeeByEmployeeId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-12-31"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/{{employeeId}}",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "{{employeeId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PutEmployeeByEmployeeId",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true,
+              "content-type": true
+            }
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "If-Match",
+                "value": "W/\"065C8D56FC7CA99780C0C5CBA8D55AB5F9A15A4\"",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-12-31",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n        \"employeeNumber\": 3501,\n        \"personalDetails\": {\n            \"firstName\": \"Esther\",\n            \"lastName\": \"Banket\",\n            \"prefix\": null,\n            \"initials\": \"E.S\",\n            \"lastNamePartner\": \"Meuwese\",\n            \"prefixPartner\": \"H.B\",\n            \"formattedName\": \"Banket E.S\",\n            \"dateOfBirth\": \"1980-01-01T00:00:00+01:00\",\n            \"placeOfBirth\": null,\n            \"dateOfDeath\": null,\n            \"aowDate\": \"2047-04-01T00:00:00+02:00\",\n            \"photo\": null,\n            \"howToFormatLastName\": {\n                \"key\": 1,\n                \"value\": \"Geboortenaam\"\n            },\n            \"title\": null,\n            \"nationality\": {\n                \"key\": 143,\n                \"value\": \"Nederlandse\"\n            },\n            \"gender\": {\n                \"key\": 1,\n                \"value\": \"Man\"\n            },\n            \"civilStatus\": {\n                \"key\": 1,\n                \"value\": \"Alleenstaand\"\n            }\n        },\n        \"citizenServiceNumber\": 200815970,\n        \"contactInformation\": {\n            \"phoneNumber\": null,\n            \"mobilePhoneNumber\": null,\n            \"faxNumber\": null,\n            \"emailAddress\": null\n        },\n        \"identityDocument\": null,\n        \"travel\": {\n            \"travelDistanceToWork\": null\n        },\n        \"address\": {\n            \"houseNumber\": 1,\n            \"street\": \"Reitseplein\",\n            \"city\": \"Tilburg\",\n            \"houseNumberAddition\": \"&\",\n            \"furtherIndication\": {\n                \"key\": 1,\n                \"value\": \"AB\"\n            },\n            \"postalCode\": \"5037 AA\",\n            \"location\": null,\n            \"country\": {\n                \"isoCode\": \"NL\",\n                \"key\": 530,\n                \"value\": \"Nederland\"\n            }\n        },\n        \"deviatingPostalAddress\": null,\n        \"exclusionFromAbsenceStatus\": false,\n        \"statusEmployeeSelfService\": {\n            \"key\": 0,\n            \"value\": \"N.V.T.\"\n        },\n        \"id\": \"636a52a1-20b6-46e8-afce-6d59fedbe7c4\"\n    }"
+            },
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/{{employeeId}}",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "{{employeeId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Employment",
+      "item": [
+        {
+          "name": "GetEmploymentsByEmployerId (with multiple filters)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/{{employerId}}/employees/employments?filter=startdate le 2000-01-01&orderby=-startdate&Accept=application/json;version=2018-01-01",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "{{employerId}}",
+                "employees",
+                "employments"
+              ],
+              "query": [
+                {
+                  "key": "filter",
+                  "value": "startdate le 2000-01-01"
+                },
+                {
+                  "key": "orderby",
+                  "value": "-startdate"
+                },
+                {
+                  "key": "Accept",
+                  "value": "application/json;version=2018-01-01"
+                }
+              ]
+            },
+            "description": "?filter=startdate lt 1990-01-01 (werkt)\n?filter=startdate le 1990-01-01 (werkt)\n?filter=startdate gt 1990-01-01 \n?filter=startdate ge 1990-01-01\n?filter=startdate eq 1990-01-01 (werkt)\n?filter=startdate ne 1990-01-01\n"
+          },
+          "response": []
+        },
+        {
+          "name": "GetEmploymentsMinimizedByEmployerId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"employmentId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/{{employerId}}/employees/employments/minimized",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "{{employerId}}",
+                "employees",
+                "employments",
+                "minimized"
+              ],
+              "query": [
+                {
+                  "key": "filter",
+                  "value": "endDate eq null",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetEmploymentsByEmployeeId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"employmentId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;version=2019-12-16",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/{{employeeId}}/employments",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "{{employeeId}}",
+                "employments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Terminate employment",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {
+              "accept": true
+            }
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2019-12-16",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"endDate\": \"2018-10-23\",\r\n    \"endOfEmploymentReason\": \r\n    {\r\n        \"key\": 1\r\n    },\r\n    \"endOfEmploymentDueToIllness\": false,\r\n    \"createMdvEntry\": false,\r\n    \"endOfEmploymentReasonTaxAuthorities\": \r\n    {\r\n        \"key\": 1\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/terminate",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "terminate"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Wage",
+      "item": [
+        {
+          "name": "GetWagesByEmploymentId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"wageId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/wages",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "wages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetWageByWageId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/wages/{{wageId}}",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "wages",
+                "{{wageId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetWageMetadataByEmploymentId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/wages/metadata",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "wages",
+                "metadata"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Metadata additional call Paygrades",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/wages/metadata/payscale/1",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "wages",
+                "metadata",
+                "payscale",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostWageByWageId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n            \"payrollPeriodType\": {\n                \"key\": 1,\n                \"value\": \"Maand\"\n            },\n            \"isGrossWageFullTime\": true,\n            \"startDate\": \"2018-01-01T00:00:00+01:00\",\n            \"grossWage\": 2500,\n            \"grossWageType\": {\n                \"key\": 1,\n                \"value\": \"Periodeloon\"\n            },\n            \"netWage\": null,\n            \"netWageType\": null,\n            \"employerCosts\": null,\n            \"employerCostsType\": null,\n            \"payScale\": null,\n            \"payGrade\": null,\n            \"applyPaygrade\": false\n        }"
+            },
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/wages",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "wages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteWageByWageId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/wages/{{wageId}}",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "wages",
+                "{{wageId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payroll period data",
+      "item": [
+        {
+          "name": "GetPayrollPeriodDataByEmploymentId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"ppdId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/payrollperioddata",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "payrollperioddata"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetPayrollPeriodDataDefaultsByEmploymentId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/payrollperioddata/defaults",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "payrollperioddata",
+                "defaults"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetPayrollPeriodDataMetadataByEmploymentId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/payrollperioddata/metadata",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "payrollperioddata",
+                "metadata"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Metadata additional call",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/payrollperioddata/metadata/year/2017/period/1",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "payrollperioddata",
+                "metadata",
+                "year",
+                "2017",
+                "period",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PatchPayrollPeriodDataByEmploymentId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"payrollPeriod\": {\r\n\t\t\"year\": 2017,\r\n\t\t\"periodNumber\": 1\r\n\t},\r\n\t\"shift\": {\r\n\t\t\"shiftNumber\": 1\r\n\t},\r\n\t\"payslipType\": {\r\n\t\t\"key\": 2\r\n\t},\r\n\t\"payslipText\": null,\r\n\t\"distributionUnit\": {\r\n\t\t\"key\": \"b14acd0d-75d7-4fc8-8b22-4a3924585cab\"\r\n\t},\r\n\t\"costCenter\": {\r\n\t\t\"key\": 2\r\n\t},\r\n\t\"costUnit\": {\r\n\t\t\"key\": 2\r\n\t},\r\n\t\"payrollComponents\": [{\r\n\t\t\t\"payrollComponent\": {\r\n\t\t\t\t\"key\": 1\r\n\t\t\t},\r\n\t\t\t\"value\": 144,\r\n\t\t\t\"isSupplement\": false\r\n\t\t}, {\r\n\t\t\t\"payrollComponent\": {\r\n\t\t\t\t\"key\": 4\r\n\t\t\t},\r\n\t\t\t\"value\": 16,\r\n\t\t\t\"isSupplement\": false\r\n\t\t}\r\n\t]\r\n}"
+            },
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/payrollperioddata",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "payrollperioddata"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payroll administration",
+      "item": [
+        {
+          "name": "GetPayrollAdministrationsByEmployerId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function() {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"administrationId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/{{employerId}}/payrolladministrations?orderby=name,clientnumber",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "{{employerId}}",
+                "payrolladministrations"
+              ],
+              "query": [
+                {
+                  "key": "orderby",
+                  "value": "name,clientnumber"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Concept employee",
+      "item": [
+        {
+          "name": "GetConceptEmployeesByEmployerId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"conceptEmployeeId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/{{employerId}}/conceptemployees?orderby=Uniquename",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "{{employerId}}",
+                "conceptemployees"
+              ],
+              "query": [
+                {
+                  "key": "orderby",
+                  "value": "Uniquename"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostConceptEmployeesByEmployerId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n                             \"uniqueName\": \"ZB10601-test\",\r\n                             \"employeeData\": {\r\n                                                          \"employeeNumber\": \"ZB10601\",\r\n                                                          \"personalDetails\": {\r\n                                                                                       \"lastName\": \"Lentis\",\r\n                                                                                       \"initials\": \"E.M.\",\r\n                                                                                       \"dateOfBirth\": \"1981-03-02\",\r\n                                                                                       \"gender\": {\r\n                                                                                                                    \"key\": \"1\"\r\n                                                                                       },\r\n                                                                                       \"nationality\": {\r\n                                                                                                                    \"key\": \"90\"\r\n                                                                                       },\r\n                                                                                       \"civilStatus\": {\r\n                                                                                                                    \"key\": \"1\"\r\n                                                                                       }\r\n                                                          },\r\n                                                          \"contactInformation\": {\r\n                                                                                       \"emailAddress\": \"Lentis@test.nl\"\r\n                                                          },\r\n                                                          \"address\": {\r\n                                                                                       \"street\": \"Piraeusplein\",\r\n                                                                                       \"city\": \"Amsterdam\",\r\n                                                                                       \"houseNumber\": \"22\",\r\n                                                                                       \"postalCode\": \"1019NL\",\r\n                                                                                       \"houseNumberAddition\": \"\",\r\n                                                                                       \"country\": {\r\n                                                                                                                    \"key\": \"530\"\r\n                                                                                       }\r\n                                                          },\r\n                                                          \"iban\": \"NL44INGB0658198548\"\r\n                             },\r\n                             \"employmentData\": {\r\n                                                          \"startDate\": \"2019-10-01\",\r\n                                                          \"historicalStartDate\": \"2019-10-01\",\r\n                                                          \"incomeRelationshipNumber\": \"0001\",\r\n                                                          \"employmentContractType\": {\r\n                                                                                       \"key\": \"0001\"\r\n                                                          },\r\n                                                          \"typeOfEmployee\": {\r\n                                                                                       \"key\": \"1\"\r\n                                                          },\r\n                                                          \"employmentDurationType\": {\r\n                                                                                       \"key\": \"2\"\r\n                                                          }\r\n                             },\r\n                             \"wageData\": {\r\n                                                          \"grossWage\": \"2800.0\",\r\n                                                          \"grossWageType\": {\r\n                                                                                       \"key\": \"1\"\r\n                                                          }\r\n                             },\r\n                             \"fiscalData\": {\r\n                                                          \"annualSalary\": \"39088.0\",\r\n                                                          \"applyPayrollTaxDeduction\": \"1\"\r\n                             }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/{{employerId}}/conceptemployees",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "{{employerId}}",
+                "conceptemployees"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PutConceptEmployeeByConceptEmployeeId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"uniqueName\": \"Sollicitant 013\",\r\n  \"employeeData\": {\r\n    \"employeeNumber\": 156,\r\n    \"personalDetails\": {\r\n      \"firstName\": \"Susan\",\r\n      \"lastName\": \"Bergen\",\r\n      \"prefix\": \"van\",\r\n      \"initials\": \"S.L.\",\r\n      \"lastNamePartner\": \"Wiel\",\r\n      \"prefixPartner\": \"van de\",\r\n      \"dateOfBirth\": \"1995-05-21\",\r\n      \"placeOfBirth\": \"Amsterdam\",\r\n      \"howToFormatLastName\": {\r\n        \"key\": 2\r\n      },\r\n      \"title\": {\r\n        \"key\": 2\r\n      },\r\n      \"gender\": {\r\n        \"key\": 2\r\n      },\r\n      \"nationality\": {\r\n        \"key\": 2\r\n      },\r\n      \"civilStatus\": {\r\n        \"key\": 2\r\n      }\r\n    },\r\n    \"contactInformation\": {\r\n      \"phoneNumber\": \"+31 13-1234567\",\r\n      \"mobilePhoneNumber\": \"+31 6-1231456\",\r\n      \"faxNumber\": \"+31 13-1234561\",\r\n      \"emailAddress\": \"info@loket.nl\"\r\n    },\r\n    \"identityDocument\": {\r\n      \"typeOfDocument\": {\r\n        \"key\": 2\r\n      },\r\n      \"documentIdentification\": \"CRE45553433\"\r\n    },\r\n    \"address\": {\r\n      \"street\": \"Voordijk\",\r\n      \"city\": \"Leiden\",\r\n      \"houseNumber\": 12,\r\n      \"houseNumberAddition\": \"D\",\r\n      \"furtherIndication\": {\r\n        \"key\": 1\r\n      },\r\n      \"postalCode\": \"1234 AA\",\r\n      \"location\": \"Fourth floor or building C\",\r\n      \"country\": {\r\n        \"key\": 1\r\n      }\r\n    },\r\n    \"deviatingPostalAddress\": {\r\n      \"street\": \"Voordijk\",\r\n      \"city\": \"Leiden\",\r\n      \"houseNumber\": 12,\r\n      \"houseNumberAddition\": \"D\",\r\n      \"furtherIndication\": {\r\n        \"key\": 1\r\n      },\r\n      \"postalCode\": \"1234 AA\",\r\n      \"location\": \"Fourth floor or building C\",\r\n      \"country\": {\r\n        \"key\": 1\r\n      }\r\n    },\r\n    \"iban\": \"NL52ABNA0424968264\"\r\n  },\r\n  \"employmentData\": {\r\n    \"startDate\": \"2019-01-01\",\r\n    \"historicalStartDate\": \"2012-05-01\",\r\n    \"payrollAdministration\": {\r\n      \"id\": \"b14acd0d-75d7-4fc8-8b22-4a3924585cab\"\r\n    },\r\n    \"nonPayrollAdministration\": {\r\n      \"id\": \"b14acd0d-75d7-4fc8-8b22-4a3924585cab\"\r\n    },\r\n    \"commissionUntilDate\": \"2019-01-01\",\r\n    \"incomeRelationshipNumber\": 12,\r\n    \"employeeProfileId\": {\r\n      \"key\": 1\r\n    },\r\n    \"employmentDurationType\": {\r\n      \"key\": 1\r\n    },\r\n    \"startDateContractOfIndefiniteDuration\": \"2018-05-08\",\r\n    \"employmentContractType\": {\r\n      \"key\": 1\r\n    },\r\n    \"typeOfEmployee\": {\r\n      \"key\": 1\r\n    },\r\n    \"cancellationPeriodEmployee\": 1,\r\n    \"cancellationPeriodEmployer\": 1,\r\n    \"cancellationPeriodTimeUnit\": {\r\n      \"key\": 4\r\n    },\r\n    \"cancellationNoticeDate\": \"2019-05-31\",\r\n    \"startCancellationNoticePeriod\": \"2019-06-01\",\r\n    \"isDirectorAndMajorShareholder\": false,\r\n    \"isOnCallEmployment\": true,\r\n    \"hasOnCallAppearanceObligation\": true,\r\n    \"vacationCoupons\": {\r\n      \"key\": 1\r\n    },\r\n    \"specialIncomeRatio\": {\r\n      \"key\": 0\r\n    },\r\n    \"isAnonymousEmployee\": true,\r\n    \"isPreviousOwner\": false,\r\n    \"isFamilyOfOwner\": false,\r\n    \"isGemoedsbezwaardNationalInsurance\": true,\r\n    \"isGemoedsbezwaardEmployeeInsurance\": true,\r\n    \"namePayslip\": \"Steve Jobs\",\r\n    \"calculateWorkingHours\": true,\r\n    \"exemptionInsuranceObligation\": {\r\n      \"key\": 0\r\n    },\r\n    \"sendMdvNotification\": true,\r\n    \"periodPayGradeAdjustment\": 2,\r\n    \"signalPayGradeAdjustment\": false,\r\n    \"typeOfParticipation\": {\r\n      \"key\": 0\r\n    },\r\n    \"valueOfParticipation\": {\r\n      \"key\": 0\r\n    },\r\n    \"professionCode\": 4,\r\n    \"deviatingCLATaxReturn\": 2,\r\n    \"participation55plusRegulationUWV\": false,\r\n    \"emailLeaveRequest\": \"api@loket.nl\",\r\n    \"writtenEmploymentContract\": true\r\n  },\r\n  \"workingHoursData\": {\r\n    \"shift\": {\r\n      \"shiftNumber\": 1\r\n    },\r\n    \"deviatingHoursPerWeek\": 32,\r\n    \"deviatingSvDaysPerPeriod\": 32,\r\n    \"averageParttimeFactor\": 37.5,\r\n    \"regularWorkPattern\": true,\r\n    \"flexibleHoursContract\": {\r\n      \"key\": 0\r\n    },\r\n    \"calculateUsingWorkPattern\": {\r\n      \"leaveHours\": true,\r\n      \"hoursBrokenPeriod\": false,\r\n      \"hoursPeriod\": false,\r\n      \"daysDailyRate\": false,\r\n      \"deviatingDaysAndHours\": false,\r\n      \"contractCode\": {\r\n        \"key\": \"b14acd0d-75d7-4fc8-8b22-4a3924585cab\"\r\n      }\r\n    },\r\n    \"workPattern\": {\r\n      \"oddWeeks\": {\r\n        \"monday\": 8,\r\n        \"tuesday\": 8,\r\n        \"wednesday\": 4,\r\n        \"thursday\": 7.5,\r\n        \"friday\": 4,\r\n        \"saturday\": 0,\r\n        \"sunday\": 0\r\n      },\r\n      \"evenWeeks\": {\r\n        \"monday\": 0,\r\n        \"tuesday\": 8,\r\n        \"wednesday\": 8,\r\n        \"thursday\": 8,\r\n        \"friday\": 2,\r\n        \"saturday\": 0,\r\n        \"sunday\": 0\r\n      }\r\n    }\r\n  },\r\n  \"wageData\": {\r\n    \"grossWage\": 23,\r\n    \"grossWageType\": {\r\n      \"key\": 2\r\n    },\r\n    \"netWage\": null,\r\n    \"netWageType\": {},\r\n    \"payScale\": {},\r\n    \"payGrade\": {},\r\n    \"applyPayGrade\": true\r\n  },\r\n  \"organizationalEntityData\": {\r\n    \"function\": {\r\n      \"key\": \"b14acd0d-75d7-4fc8-8b22-4a3924585cab\"\r\n    },\r\n    \"deviatingFunctionGroup\": \"9A\",\r\n    \"deviatingFunctionDescription\": \"Directeur\",\r\n    \"standardFunction\": {\r\n      \"key\": 1\r\n    },\r\n    \"department\": {\r\n      \"key\": \"b14acd0d-75d7-4fc8-8b22-4a3924585cab\"\r\n    },\r\n    \"distributionUnit\": {\r\n      \"key\": \"b14acd0d-75d7-4fc8-8b22-4a3924585cab\"\r\n    },\r\n    \"placeOfEmployment\": \"Amsterdam office\",\r\n    \"internalTelephoneExtensionNumber\": \"0133031600\"\r\n  },\r\n  \"socialSecurityData\": {\r\n    \"isInsuredForSicknessBenefitsAct\": false,\r\n    \"isInsuredForUnemploymentInsuranceAct\": false,\r\n    \"isInsuredForOccupationalDisabilityInsuranceAct\": false,\r\n    \"healthCareInsuranceActType\": {\r\n      \"key\": 2\r\n    }\r\n  },\r\n  \"fiscalData\": {\r\n    \"annualSalary\": 60000,\r\n    \"deviatingPayrollTaxTableColour\": {\r\n      \"key\": 2\r\n    },\r\n    \"applyDayTables\": false,\r\n    \"applyDeviatingPayrollTaxPercentageOn\": {\r\n      \"key\": 2\r\n    },\r\n    \"applyPayrollTaxDeduction\": false,\r\n    \"applyStudentDeduction\": false,\r\n    \"deviatingCalculationRulePayrollTax\": {\r\n      \"key\": 2\r\n    },\r\n    \"residentOf\": {\r\n      \"key\": 2\r\n    }\r\n  },\r\n  \"otherPayrollVariablesData\": {\r\n    \"deviatingPremiumGroup\": {\r\n      \"key\": 2\r\n    }\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/conceptemployees/{{conceptEmployeeId}}",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "conceptemployees",
+                "{{conceptEmployeeId}}"
+              ]
+            },
+            "description": "PutConceptEmployeeByConceptEmployeeId"
+          },
+          "response": []
+        },
+        {
+          "name": "PatchConvertToEmployeeByConceptEmployeeId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/conceptemployees/{{conceptEmployeeId}}/convertToEmployee",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "conceptemployees",
+                "{{conceptEmployeeId}}",
+                "convertToEmployee"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payroll run",
+      "item": [
+        {
+          "name": "Lijst payroll runs",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/payrolladministrations/{{administrationId}}/payrollruns?filter=sequenceNumber eq 1",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "payrolladministrations",
+                "{{administrationId}}",
+                "payrollruns"
+              ],
+              "query": [
+                {
+                  "key": "filter",
+                  "value": "sequenceNumber eq 1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reject or accept payroll run",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;version=2018-01-01",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n{\n\t\"id\": \"945B7C57-698C-4C07-981A-791B730837A2\",\n\t\"action\": \"confirm\"\n}\n]"
+            },
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/payrolladministrations/payrollruns",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "payrolladministrations",
+                "payrollruns"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Downloaden payslip (loonstroken)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/pdf "
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/payrolladministrations/payrollruns/{{payrollrunId}}/payslips",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "payrolladministrations",
+                "payrollruns",
+                "{{payrollrunId}}",
+                "payslips"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Download default set (standaardsets)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/payrolladministrations/payrollruns/{{payrollrunId}}/defaultSet",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "payrolladministrations",
+                "payrollruns",
+                "{{payrollrunId}}",
+                "defaultSet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Download wage sheet(loonstaat)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/payrolladministrations/payrollruns/{{payrollrunId}}/wagesheets",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "payrolladministrations",
+                "payrollruns",
+                "{{payrollrunId}}",
+                "wagesheets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Download payment overview (betaalbestand1)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/pdf"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/payrolladministrations/payrollruns/{{payrollrunId}}/paymentOverviews",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "payrolladministrations",
+                "payrollruns",
+                "{{payrollrunId}}",
+                "paymentOverviews"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payslip (employment)",
+      "item": [
+        {
+          "name": "Lijst payslips",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"payslipId\", data._embedded[0].payrollrunId);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/payslips",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "payslips"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Download payslip",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"payslipId\", data._embedded[0].id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/pdf",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/payslips/{{payslipId}}",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "payslips",
+                "{{payslipId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Year end statement",
+      "item": [
+        {
+          "name": "Lijst year end statement",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var data = JSON.parse(responseBody);",
+                  "postman.setEnvironmentVariable(\"year\", data._embedded[0].year);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/yearendstatements",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "yearendstatements"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Download year end statement",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/pdf"
+              }
+            ],
+            "url": {
+              "raw": "{{LoketApiUrl}}/v2/providers/employers/employees/employments/{{employmentId}}/yearendstatements/{{year}}",
+              "host": [
+                "{{LoketApiUrl}}"
+              ],
+              "path": [
+                "v2",
+                "providers",
+                "employers",
+                "employees",
+                "employments",
+                "{{employmentId}}",
+                "yearendstatements",
+                "{{year}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
