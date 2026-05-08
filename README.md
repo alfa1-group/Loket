@@ -14,6 +14,7 @@ var builder = Host.CreateDefaultBuilder(args)
     .ConfigureServices((context, services) =>
     {
         services
+            .AddSingleton(TimeProvider.System)
             .AddLogging()
             .AddLoketTokenStorageFileSystem(context.Configuration)
             .AddLoketKiotaAuthentication(context.Configuration);
@@ -23,8 +24,16 @@ var host = builder.Build();
 
 using var scope = host.Services.CreateScope();
 
-var me = await client.Api.V1.Current.Me.GetAsync().AsItem();
-Console.WriteLine($"{me.CurrentDivision} {me.Email}");
+var client = scope.ServiceProvider.GetRequiredService<LoketServiceClient>();
+
+var getProvidersReponse = await client.Providers.GetAsProvidersGetResponseAsync(x => {
+    x.QueryParameters.PageSize = 99;
+    x.QueryParameters.Filter = FilterBuilder<Provider>.Build(p => p.Name != "test");
+});
+
+var provider = getProvidersReponse?.Embedded?.FirstOrDefault();
+
+Console.WriteLine(JsonSerializer.Serialize(provider));
 ```
 
 
