@@ -5,23 +5,23 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Wagebasedleave
+namespace Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Wagebasedleave
 {
     [Obsolete("This class is obsolete. Use WagebasedleaveGetResponse instead.")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class WagebasedleaveResponse : global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Wagebasedleave.WagebasedleaveGetResponse, IParsable
+    public partial class WagebasedleaveResponse : global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Wagebasedleave.WagebasedleaveGetResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Wagebasedleave.WagebasedleaveResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Wagebasedleave.WagebasedleaveResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Wagebasedleave.WagebasedleaveResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Wagebasedleave.WagebasedleaveResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Wagebasedleave.WagebasedleaveResponse();
+            return new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Wagebasedleave.WagebasedleaveResponse();
         }
     }
 }

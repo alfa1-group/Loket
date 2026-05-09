@@ -156,11 +156,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workingh
         /// <exception cref="global::Loket.Api.Client.Models.WithWorkinghours409Error">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workinghours.Item.WithWorkinghoursPutResponse?> PutAsWithWorkinghoursPutResponseAsync(global::Loket.Api.Client.Models.Workinghours body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workinghours.Item.WithWorkinghoursPutResponse?> PutAsWithWorkinghoursPutResponseAsync(global::Loket.Api.Client.Models.WorkingHours body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workinghours.Item.WithWorkinghoursPutResponse> PutAsWithWorkinghoursPutResponseAsync(global::Loket.Api.Client.Models.Workinghours body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workinghours.Item.WithWorkinghoursPutResponse> PutAsWithWorkinghoursPutResponseAsync(global::Loket.Api.Client.Models.WorkingHours body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -188,11 +188,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workingh
         [Obsolete("This method is obsolete. Use PutAsWithWorkinghoursPutResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workinghours.Item.WithWorkinghoursResponse?> PutAsync(global::Loket.Api.Client.Models.Workinghours body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workinghours.Item.WithWorkinghoursResponse?> PutAsync(global::Loket.Api.Client.Models.WorkingHours body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workinghours.Item.WithWorkinghoursResponse> PutAsync(global::Loket.Api.Client.Models.Workinghours body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workinghours.Item.WithWorkinghoursResponse> PutAsync(global::Loket.Api.Client.Models.WorkingHours body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -252,11 +252,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Workingh
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Loket.Api.Client.Models.Workinghours body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Loket.Api.Client.Models.WorkingHours body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Loket.Api.Client.Models.Workinghours body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Loket.Api.Client.Models.WorkingHours body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

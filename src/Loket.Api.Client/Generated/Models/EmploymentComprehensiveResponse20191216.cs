@@ -207,10 +207,10 @@ namespace Loket.Api.Client.Models
         /// <summary>The workinghours property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours? Workinghours { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours? Workinghours { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours Workinghours { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours Workinghours { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -254,7 +254,7 @@ namespace Loket.Api.Client.Models
                 { "socialSecurityConfiguration", n => { SocialSecurityConfiguration = n.GetObjectValue<global::Loket.Api.Client.Models.SchemasSocialSecurity>(global::Loket.Api.Client.Models.SchemasSocialSecurity.CreateFromDiscriminatorValue); } },
                 { "statusEmployeeSelfService", n => { StatusEmployeeSelfService = n.GetObjectValue<global::Loket.Api.Client.Models.EssAccessWithoutEmployee>(global::Loket.Api.Client.Models.EssAccessWithoutEmployee.CreateFromDiscriminatorValue); } },
                 { "wage", n => { Wage = n.GetObjectValue<global::Loket.Api.Client.Models.SchemasWage>(global::Loket.Api.Client.Models.SchemasWage.CreateFromDiscriminatorValue); } },
-                { "workinghours", n => { Workinghours = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours>(global::Loket.Api.Client.Models.Workinghours.CreateFromDiscriminatorValue); } },
+                { "workinghours", n => { Workinghours = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours>(global::Loket.Api.Client.Models.WorkingHours.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -288,7 +288,7 @@ namespace Loket.Api.Client.Models
             writer.WriteObjectValue<global::Loket.Api.Client.Models.SchemasSocialSecurity>("socialSecurityConfiguration", SocialSecurityConfiguration);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.EssAccessWithoutEmployee>("statusEmployeeSelfService", StatusEmployeeSelfService);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.SchemasWage>("wage", Wage);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours>("workinghours", Workinghours);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours>("workinghours", Workinghours);
         }
     }
 }

@@ -100,11 +100,11 @@ namespace Loket.Api.Client.V2.Providers.Item.Notificationsets
         /// <exception cref="global::Loket.Api.Client.Models.Notificationsets403Error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Item.Notificationsets.NotificationsetsPostResponse?> PostAsNotificationsetsPostResponseAsync(global::Loket.Api.Client.Models.NotificationSets body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Item.Notificationsets.NotificationsetsPostResponse?> PostAsNotificationsetsPostResponseAsync(global::Loket.Api.Client.Models.Notificationsets body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Item.Notificationsets.NotificationsetsPostResponse> PostAsNotificationsetsPostResponseAsync(global::Loket.Api.Client.Models.NotificationSets body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Item.Notificationsets.NotificationsetsPostResponse> PostAsNotificationsetsPostResponseAsync(global::Loket.Api.Client.Models.Notificationsets body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -130,11 +130,11 @@ namespace Loket.Api.Client.V2.Providers.Item.Notificationsets
         [Obsolete("This method is obsolete. Use PostAsNotificationsetsPostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Item.Notificationsets.NotificationsetsResponse?> PostAsync(global::Loket.Api.Client.Models.NotificationSets body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Item.Notificationsets.NotificationsetsResponse?> PostAsync(global::Loket.Api.Client.Models.Notificationsets body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Item.Notificationsets.NotificationsetsResponse> PostAsync(global::Loket.Api.Client.Models.NotificationSets body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Item.Notificationsets.NotificationsetsResponse> PostAsync(global::Loket.Api.Client.Models.Notificationsets body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -174,11 +174,11 @@ namespace Loket.Api.Client.V2.Providers.Item.Notificationsets
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.NotificationSets body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.Notificationsets body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.NotificationSets body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.Notificationsets body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

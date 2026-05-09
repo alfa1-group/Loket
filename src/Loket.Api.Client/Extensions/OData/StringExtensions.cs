@@ -11,7 +11,7 @@ public static class StringExtensions
     /// </summary>
     public static string ToODataFormat(this string? value)
     {
-        // 0. If null, return "null" (OData literal for null)
+        // If null, return "null" (OData literal for null)
         if (value == null)
         {
             return ODataNullLiteral;

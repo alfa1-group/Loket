@@ -11,23 +11,23 @@ namespace Loket.Api.Client.Models
     /// The shift determines the full-time hours and bonus percentage.`shift` is a metadata field within the payroll administration context. Possible values can be managed by the user.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Workinghours_shift : IParsable
+    public partial class WorkingHours_shift : IParsable
     {
-        /// <summary>The bonus percentage used in wage calculations for the hours made in this shift.</summary>
+        /// <summary>The bonus percentage used in wage calculations for the hours made in this shift. </summary>
         public double? BonusPercentage { get; private set; }
         /// <summary>The full time hours for an employment that is linked to this shift.</summary>
         public double? FullTimeHoursPerWeek { get; private set; }
-        /// <summary>The number for the shift.</summary>
+        /// <summary>The number for the shift. </summary>
         public int? ShiftNumber { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.Workinghours_shift"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.WorkingHours_shift"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.Workinghours_shift CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.WorkingHours_shift CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.Workinghours_shift();
+            return new global::Loket.Api.Client.Models.WorkingHours_shift();
         }
         /// <summary>
         /// The deserialization information for the current model

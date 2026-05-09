@@ -18,18 +18,18 @@ namespace Loket.Api.Client.V2.Providers.Item.Authorizationsets
         /// <summary>The embedded property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.AuthorizationSets>? Embedded { get; set; }
+        public List<global::Loket.Api.Client.Models.Authorizationsets>? Embedded { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.AuthorizationSets> Embedded { get; set; }
+        public List<global::Loket.Api.Client.Models.Authorizationsets> Embedded { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.AuthorizationSets>? Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Authorizationsets>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.AuthorizationSets> Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Authorizationsets> Messages { get; set; }
 #endif
         /// <summary>Number of records in the response</summary>
         public int? PageSize { get; set; }
@@ -64,8 +64,8 @@ namespace Loket.Api.Client.V2.Providers.Item.Authorizationsets
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "currentPage", n => { CurrentPage = n.GetIntValue(); } },
-                { "_embedded", n => { Embedded = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.AuthorizationSets>(global::Loket.Api.Client.Models.AuthorizationSets.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.AuthorizationSets>(global::Loket.Api.Client.Models.AuthorizationSets.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "_embedded", n => { Embedded = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Authorizationsets>(global::Loket.Api.Client.Models.Authorizationsets.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Authorizationsets>(global::Loket.Api.Client.Models.Authorizationsets.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pageSize", n => { PageSize = n.GetIntValue(); } },
                 { "totalPages", n => { TotalPages = n.GetIntValue(); } },
                 { "totalSize", n => { TotalSize = n.GetIntValue(); } },
@@ -80,8 +80,8 @@ namespace Loket.Api.Client.V2.Providers.Item.Authorizationsets
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("currentPage", CurrentPage);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.AuthorizationSets>("_embedded", Embedded);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.AuthorizationSets>("messages", Messages);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Authorizationsets>("_embedded", Embedded);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Authorizationsets>("messages", Messages);
             writer.WriteIntValue("pageSize", PageSize);
             writer.WriteIntValue("totalPages", TotalPages);
             writer.WriteIntValue("totalSize", TotalSize);

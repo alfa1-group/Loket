@@ -6,7 +6,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item
+namespace Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -16,10 +16,10 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content? Content { get; set; }
+        public global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content? Content { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content Content { get; set; }
+        public global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content Content { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,12 +40,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse();
+            return new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content>(global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content>(global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content.CreateFromDiscriminatorValue); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.WithWageBasedLeave>(global::Loket.Api.Client.Models.WithWageBasedLeave.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Loket.Api.Client.Models.VersionObject1>(global::Loket.Api.Client.Models.VersionObject1.CreateFromDiscriminatorValue); } },
             };
@@ -67,7 +67,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content>("content", Content);
+            writer.WriteObjectValue<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse_content>("content", Content);
             writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.WithWageBasedLeave>("messages", Messages);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.VersionObject1>("version", Version);
         }

@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,84 +9,66 @@ namespace Loket.Api.Client.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Workinghours : IParsable
+    public partial class WorkingHours : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>This read-only field provides the user with a single point of knowledge as to what number of hours per week employment is actually registered in regards to the payrolling process. This number may be respectively based on the workpattern, deviating hours per week or shift hours. If the employment is an &apos;on call employment&apos; (oproepkracht/invalkracht) the number is either NULL or represents the min-hours if that is applicable.This field is especially useful for third-parties that want to know the number of hours per week (without having to apply specific Loket logic). I.e. this field is not visible in Loket GUI.</summary>
-        public double? AggregatedHoursPerWeek { get; private set; }
-        /// <summary>This field can be used to register the average hours per week an employment with varying hours works. For example, 0 hour contracts and min max contracts. The value of this field does NOT directly affect the payrolling proces.</summary>
-        public double? AverageHoursPerWeek { get; set; }
-        /// <summary>This field is used to register the deviating value of the parttimefactor, purely for administrative purposes. The parttimefactor is normally calculated by workinghours dividing by shifthours multplied by 100. Please note that this field is not used in the actual payroll proces! For the payroll process the number of hours is used.</summary>
+        /// <summary>This field is used to register the deviating value of the parttimefactor. The parttimefactor is normally calculated by workinghours dividing by shifthours multplied by 100</summary>
         public double? AverageParttimeFactor { get; set; }
-        /// <summary>Indications in this objects determine whether specific values should be calculated based on the bi-weekly workPattern (specified in the `workPattern` object). Onderliggende elementen geven aan of specifieke waardes berekend moeten worden op basis van het twee wekelijks werkpatroon `workPattern`</summary>
+        /// <summary>Indications in this objects determine whether specific values should be calculated based on the bi-weekly workPattern (specified in the `workPattern` object).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours_calculateUsingWorkPattern? CalculateUsingWorkPattern { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_calculateUsingWorkPattern? CalculateUsingWorkPattern { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours_calculateUsingWorkPattern CalculateUsingWorkPattern { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_calculateUsingWorkPattern CalculateUsingWorkPattern { get; set; }
 #endif
         /// <summary>This field is specialy made for convenience stores. The field is the type of contract.`contractCode` is a metadata field within the employer context. Possible values can be managed by the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours_contractCode? ContractCode { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_contractCode? ContractCode { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours_contractCode ContractCode { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_contractCode ContractCode { get; set; }
 #endif
-        /// <summary>If this field is empty the fulltime hours are based as defined by the shift, this optional field is used to register an overwriting value. The value can be less or more then the fulltime hours a week.</summary>
+        /// <summary>Fulltime hours are normally based as defined by the shift, this optional field is used to register a deviating value. The value can be less or more then the fulltime hours a week.</summary>
         public double? DeviatingHoursPerWeek { get; set; }
-        /// <summary>Sv (social insurance) days are normally calculated by hours per shift, this optional field is used to register a deviating value.</summary>
-        public int? DeviatingSvDaysPerPeriod { get; set; }
-        /// <summary>The end date of the entity. The date is up to and including.</summary>
-        public Date? EndDate { get; private set; }
+        /// <summary>Sv (social insurance) days are normally calculated by hours per shift, this optional field is used to register a deviating value. </summary>
+        public double? DeviatingSvDaysPerPeriod { get; set; }
         /// <summary>The field indicates the type of flexible contract. If not applicable, please set to NULL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours_flexibleHoursContract? FlexibleHoursContract { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_flexibleHoursContract? FlexibleHoursContract { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours_flexibleHoursContract FlexibleHoursContract { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_flexibleHoursContract FlexibleHoursContract { get; set; }
 #endif
-        /// <summary>The unique identifier of an object (GUID/UUID)</summary>
-        public Guid? Id { get; private set; }
-        /// <summary>When the employee works the same amount of hours per day every week, then the workpattern is regular.</summary>
+        /// <summary>When the employee works the same amount of hours per day every week, then the workpattern is regular.  </summary>
         public bool? RegularWorkPattern { get; set; }
         /// <summary>The shift determines the full-time hours and bonus percentage.`shift` is a metadata field within the payroll administration context. Possible values can be managed by the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours_shift? Shift { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_shift? Shift { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours_shift Shift { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_shift Shift { get; set; }
 #endif
-        /// <summary>The shift determines the full-time hours and bonus percentage.`shiftRateSickLeave` is a metadata field within the payroll administration context. Possible values can be managed by the user.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Loket.Api.Client.Models.Workinghours_shiftRateSickLeave? ShiftRateSickLeave { get; set; }
-#nullable restore
-#else
-        public global::Loket.Api.Client.Models.Workinghours_shiftRateSickLeave ShiftRateSickLeave { get; set; }
-#endif
-        /// <summary>Start date of the record.A (linked chain)[./#section/Data/Date-chains] is maintained within this resource.</summary>
-        public Date? StartDate { get; set; }
         /// <summary>The applicable work pattern for a period of 2 weeks can be stored in this object. Each field contains the number of work hours for that day in the 2-week period. &lt;br /&gt; Please note that the workPattern should be left NULL if no data is present (as opposed to filling all fields with 0) &lt;br /&gt; Each field represent the number of hours the employee normally works on that day.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours_workPattern? WorkPattern { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_workPattern? WorkPattern { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours_workPattern WorkPattern { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_workPattern WorkPattern { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.Workinghours"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.WorkingHours"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.Workinghours CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.WorkingHours CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.Workinghours();
+            return new global::Loket.Api.Client.Models.WorkingHours();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,21 +78,15 @@ namespace Loket.Api.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregatedHoursPerWeek", n => { AggregatedHoursPerWeek = n.GetDoubleValue(); } },
-                { "averageHoursPerWeek", n => { AverageHoursPerWeek = n.GetDoubleValue(); } },
                 { "averageParttimeFactor", n => { AverageParttimeFactor = n.GetDoubleValue(); } },
-                { "calculateUsingWorkPattern", n => { CalculateUsingWorkPattern = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours_calculateUsingWorkPattern>(global::Loket.Api.Client.Models.Workinghours_calculateUsingWorkPattern.CreateFromDiscriminatorValue); } },
-                { "contractCode", n => { ContractCode = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours_contractCode>(global::Loket.Api.Client.Models.Workinghours_contractCode.CreateFromDiscriminatorValue); } },
+                { "calculateUsingWorkPattern", n => { CalculateUsingWorkPattern = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours_calculateUsingWorkPattern>(global::Loket.Api.Client.Models.WorkingHours_calculateUsingWorkPattern.CreateFromDiscriminatorValue); } },
+                { "contractCode", n => { ContractCode = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours_contractCode>(global::Loket.Api.Client.Models.WorkingHours_contractCode.CreateFromDiscriminatorValue); } },
                 { "deviatingHoursPerWeek", n => { DeviatingHoursPerWeek = n.GetDoubleValue(); } },
-                { "deviatingSvDaysPerPeriod", n => { DeviatingSvDaysPerPeriod = n.GetIntValue(); } },
-                { "endDate", n => { EndDate = n.GetDateValue(); } },
-                { "flexibleHoursContract", n => { FlexibleHoursContract = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours_flexibleHoursContract>(global::Loket.Api.Client.Models.Workinghours_flexibleHoursContract.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
+                { "deviatingSvDaysPerPeriod", n => { DeviatingSvDaysPerPeriod = n.GetDoubleValue(); } },
+                { "flexibleHoursContract", n => { FlexibleHoursContract = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours_flexibleHoursContract>(global::Loket.Api.Client.Models.WorkingHours_flexibleHoursContract.CreateFromDiscriminatorValue); } },
                 { "regularWorkPattern", n => { RegularWorkPattern = n.GetBoolValue(); } },
-                { "shift", n => { Shift = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours_shift>(global::Loket.Api.Client.Models.Workinghours_shift.CreateFromDiscriminatorValue); } },
-                { "shiftRateSickLeave", n => { ShiftRateSickLeave = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours_shiftRateSickLeave>(global::Loket.Api.Client.Models.Workinghours_shiftRateSickLeave.CreateFromDiscriminatorValue); } },
-                { "startDate", n => { StartDate = n.GetDateValue(); } },
-                { "workPattern", n => { WorkPattern = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours_workPattern>(global::Loket.Api.Client.Models.Workinghours_workPattern.CreateFromDiscriminatorValue); } },
+                { "shift", n => { Shift = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours_shift>(global::Loket.Api.Client.Models.WorkingHours_shift.CreateFromDiscriminatorValue); } },
+                { "workPattern", n => { WorkPattern = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours_workPattern>(global::Loket.Api.Client.Models.WorkingHours_workPattern.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -121,18 +96,15 @@ namespace Loket.Api.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("averageHoursPerWeek", AverageHoursPerWeek);
             writer.WriteDoubleValue("averageParttimeFactor", AverageParttimeFactor);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours_calculateUsingWorkPattern>("calculateUsingWorkPattern", CalculateUsingWorkPattern);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours_contractCode>("contractCode", ContractCode);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours_calculateUsingWorkPattern>("calculateUsingWorkPattern", CalculateUsingWorkPattern);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours_contractCode>("contractCode", ContractCode);
             writer.WriteDoubleValue("deviatingHoursPerWeek", DeviatingHoursPerWeek);
-            writer.WriteIntValue("deviatingSvDaysPerPeriod", DeviatingSvDaysPerPeriod);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours_flexibleHoursContract>("flexibleHoursContract", FlexibleHoursContract);
+            writer.WriteDoubleValue("deviatingSvDaysPerPeriod", DeviatingSvDaysPerPeriod);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours_flexibleHoursContract>("flexibleHoursContract", FlexibleHoursContract);
             writer.WriteBoolValue("regularWorkPattern", RegularWorkPattern);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours_shift>("shift", Shift);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours_shiftRateSickLeave>("shiftRateSickLeave", ShiftRateSickLeave);
-            writer.WriteDateValue("startDate", StartDate);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours_workPattern>("workPattern", WorkPattern);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours_shift>("shift", Shift);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours_workPattern>("workPattern", WorkPattern);
         }
     }
 }

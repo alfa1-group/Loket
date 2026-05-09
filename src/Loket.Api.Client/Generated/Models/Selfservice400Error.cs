@@ -13,13 +13,15 @@ namespace Loket.Api.Client.Models
     public partial class Selfservice400Error : ApiException, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The content property</summary>
+        /// <summary>Current page returned in the response</summary>
+        public int? CurrentPage { get; set; }
+        /// <summary>The embedded property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Selfservice400Error_content? Content { get; set; }
+        public UntypedNode? Embedded { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Selfservice400Error_content Content { get; set; }
+        public UntypedNode Embedded { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
@@ -31,6 +33,12 @@ namespace Loket.Api.Client.Models
 #else
         public List<global::Loket.Api.Client.Models.Selfservice> Messages { get; set; }
 #endif
+        /// <summary>Number of records in the response</summary>
+        public int? PageSize { get; set; }
+        /// <summary>Number of pages available</summary>
+        public int? TotalPages { get; set; }
+        /// <summary>Total number of records, taking into account the given filter.</summary>
+        public int? TotalSize { get; set; }
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,8 +65,12 @@ namespace Loket.Api.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.Selfservice400Error_content>(global::Loket.Api.Client.Models.Selfservice400Error_content.CreateFromDiscriminatorValue); } },
+                { "currentPage", n => { CurrentPage = n.GetIntValue(); } },
+                { "_embedded", n => { Embedded = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Selfservice>(global::Loket.Api.Client.Models.Selfservice.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "pageSize", n => { PageSize = n.GetIntValue(); } },
+                { "totalPages", n => { TotalPages = n.GetIntValue(); } },
+                { "totalSize", n => { TotalSize = n.GetIntValue(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Loket.Api.Client.Models.VersionObject1>(global::Loket.Api.Client.Models.VersionObject1.CreateFromDiscriminatorValue); } },
             };
         }
@@ -69,8 +81,12 @@ namespace Loket.Api.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Selfservice400Error_content>("content", Content);
+            writer.WriteIntValue("currentPage", CurrentPage);
+            writer.WriteObjectValue<UntypedNode>("_embedded", Embedded);
             writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Selfservice>("messages", Messages);
+            writer.WriteIntValue("pageSize", PageSize);
+            writer.WriteIntValue("totalPages", TotalPages);
+            writer.WriteIntValue("totalSize", TotalSize);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.VersionObject1>("version", Version);
         }
     }

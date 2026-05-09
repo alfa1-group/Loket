@@ -46,10 +46,10 @@ namespace Loket.Api.Client.Models
         /// <summary>If applicable contains the addresses of stops used to calculate the route. The order of the items in the array is equal to the order of the route taken.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.InitiatedDeclaration>? Route { get; set; }
+        public List<global::Loket.Api.Client.Models.InitiateDeclaration>? Route { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.InitiatedDeclaration> Route { get; set; }
+        public List<global::Loket.Api.Client.Models.InitiateDeclaration> Route { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -75,7 +75,7 @@ namespace Loket.Api.Client.Models
                 { "numberOfUnits", n => { NumberOfUnits = n.GetDoubleValue(); } },
                 { "payrollComponent", n => { PayrollComponent = n.GetObjectValue<global::Loket.Api.Client.Models.PayrollComponent>(global::Loket.Api.Client.Models.PayrollComponent.CreateFromDiscriminatorValue); } },
                 { "reasonForDeviatingFromCalculatedDistance", n => { ReasonForDeviatingFromCalculatedDistance = n.GetStringValue(); } },
-                { "route", n => { Route = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.InitiatedDeclaration>(global::Loket.Api.Client.Models.InitiatedDeclaration.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "route", n => { Route = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.InitiateDeclaration>(global::Loket.Api.Client.Models.InitiateDeclaration.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Loket.Api.Client.Models
             writer.WriteDoubleValue("numberOfUnits", NumberOfUnits);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.PayrollComponent>("payrollComponent", PayrollComponent);
             writer.WriteStringValue("reasonForDeviatingFromCalculatedDistance", ReasonForDeviatingFromCalculatedDistance);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.InitiatedDeclaration>("route", Route);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.InitiateDeclaration>("route", Route);
         }
     }
 }

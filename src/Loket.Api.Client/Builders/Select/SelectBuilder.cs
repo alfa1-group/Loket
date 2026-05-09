@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Loket.Api.Client.Builders.Select;
 
-public static class SelectBuilder<T>
+internal static class SelectBuilder<T>
 {
     private static readonly Dictionary<string, string>? PropertyMapping = (typeof(T).GetField("PropertyMapping", BindingFlags.NonPublic | BindingFlags.Static)?.GetValue(null) as Dictionary<string, string>)?
         .Where(p => p.Key != "Metadata")
@@ -15,7 +15,7 @@ public static class SelectBuilder<T>
     /// <typeparam name="T">The type to extract property names from</typeparam>
     /// <param name="expressions">Lambda expressions pointing to properties</param>
     /// <returns>A comma-separated string of property names</returns>
-    public static string Build(params Expression<Func<T, object?>>[] expressions)
+    internal static string Build(params Expression<Func<T, object?>>[] expressions)
     {
         if (expressions.Length == 0)
         {
@@ -41,7 +41,7 @@ public static class SelectBuilder<T>
     /// <typeparam name="T">The source type</typeparam>
     /// <param name="expression">Lambda expression that returns an anonymous object with the desired properties</param>
     /// <returns>A comma-separated string of property names</returns>
-    public static string Build(Expression<Func<T, object?>> expression)
+    internal static string Build(Expression<Func<T, object?>> expression)
     {
         return expression.Body switch
         {

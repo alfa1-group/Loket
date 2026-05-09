@@ -6,7 +6,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave
+namespace Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -18,18 +18,18 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
         /// <summary>The embedded property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.AgeBasedLeave>? Embedded { get; set; }
+        public List<global::Loket.Api.Client.Models.Agebasedleave>? Embedded { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.AgeBasedLeave> Embedded { get; set; }
+        public List<global::Loket.Api.Client.Models.Agebasedleave> Embedded { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.AgeBasedLeave>? Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Agebasedleave>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.AgeBasedLeave> Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Agebasedleave> Messages { get; set; }
 #endif
         /// <summary>Number of records in the response</summary>
         public int? PageSize { get; set; }
@@ -48,12 +48,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveGetResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveGetResponse();
+            return new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,8 +64,8 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "currentPage", n => { CurrentPage = n.GetIntValue(); } },
-                { "_embedded", n => { Embedded = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.AgeBasedLeave>(global::Loket.Api.Client.Models.AgeBasedLeave.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.AgeBasedLeave>(global::Loket.Api.Client.Models.AgeBasedLeave.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "_embedded", n => { Embedded = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Agebasedleave>(global::Loket.Api.Client.Models.Agebasedleave.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Agebasedleave>(global::Loket.Api.Client.Models.Agebasedleave.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pageSize", n => { PageSize = n.GetIntValue(); } },
                 { "totalPages", n => { TotalPages = n.GetIntValue(); } },
                 { "totalSize", n => { TotalSize = n.GetIntValue(); } },
@@ -80,8 +80,8 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("currentPage", CurrentPage);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.AgeBasedLeave>("_embedded", Embedded);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.AgeBasedLeave>("messages", Messages);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Agebasedleave>("_embedded", Embedded);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Agebasedleave>("messages", Messages);
             writer.WriteIntValue("pageSize", PageSize);
             writer.WriteIntValue("totalPages", TotalPages);
             writer.WriteIntValue("totalSize", TotalSize);

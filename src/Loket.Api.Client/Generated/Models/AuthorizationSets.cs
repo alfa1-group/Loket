@@ -9,18 +9,12 @@ namespace Loket.Api.Client.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AuthorizationSets : IParsable
+    public partial class Authorizationsets : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The authorizations property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Loket.Api.Client.Models.WithAuthorizationSet>? Authorizations { get; set; }
-#nullable restore
-#else
-        public List<global::Loket.Api.Client.Models.WithAuthorizationSet> Authorizations { get; set; }
-#endif
-        /// <summary>The description property</summary>
+        /// <summary>Identifying code for the message</summary>
+        public int? Code { get; set; }
+        /// <summary>Describes the message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -28,17 +22,33 @@ namespace Loket.Api.Client.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The unique identifier of an object (GUID/UUID)</summary>
-        public Guid? Id { get; private set; }
+        /// <summary>In some cases when the message may relate to a specific entity, or specific group of entities, this field provides the identifier of that entity </summary>
+        public Guid? Id { get; set; }
+        /// <summary>An array that can contain additional information</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Properties { get; set; }
+#nullable restore
+#else
+        public List<string> Properties { get; set; }
+#endif
+        /// <summary>Indication of the type of message.See [the general documentation for more information](./#section/Response/Messages)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.AuthorizationSets"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.Authorizationsets"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.AuthorizationSets CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.Authorizationsets CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.AuthorizationSets();
+            return new global::Loket.Api.Client.Models.Authorizationsets();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,9 +58,11 @@ namespace Loket.Api.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "authorizations", n => { Authorizations = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.WithAuthorizationSet>(global::Loket.Api.Client.Models.WithAuthorizationSet.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "code", n => { Code = n.GetIntValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
+                { "properties", n => { Properties = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -60,8 +72,11 @@ namespace Loket.Api.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.WithAuthorizationSet>("authorizations", Authorizations);
+            writer.WriteIntValue("code", Code);
             writer.WriteStringValue("description", Description);
+            writer.WriteGuidValue("id", Id);
+            writer.WriteCollectionOfPrimitiveValues<string>("properties", Properties);
+            writer.WriteStringValue("type", Type);
         }
     }
 }

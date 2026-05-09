@@ -9,10 +9,12 @@ namespace Loket.Api.Client.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class NotificationSets : IParsable
+    public partial class Notificationsets : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The description property</summary>
+        /// <summary>Identifying code for the message</summary>
+        public int? Code { get; set; }
+        /// <summary>Describes the message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -20,27 +22,33 @@ namespace Loket.Api.Client.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The unique identifier of an object (GUID/UUID)</summary>
-        public Guid? Id { get; private set; }
-        /// <summary>The notifications property</summary>
+        /// <summary>In some cases when the message may relate to a specific entity, or specific group of entities, this field provides the identifier of that entity </summary>
+        public Guid? Id { get; set; }
+        /// <summary>An array that can contain additional information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.WithNotificationSet>? Notifications { get; set; }
+        public List<string>? Properties { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.WithNotificationSet> Notifications { get; set; }
+        public List<string> Properties { get; set; }
 #endif
-        /// <summary>The number of employer users that are linked to this notification set</summary>
-        public int? NumberOfLinkedEmployerUsers { get; private set; }
+        /// <summary>Indication of the type of message.See [the general documentation for more information](./#section/Response/Messages)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.NotificationSets"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.Notificationsets"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.NotificationSets CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.Notificationsets CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.NotificationSets();
+            return new global::Loket.Api.Client.Models.Notificationsets();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,10 +58,11 @@ namespace Loket.Api.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "code", n => { Code = n.GetIntValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "notifications", n => { Notifications = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.WithNotificationSet>(global::Loket.Api.Client.Models.WithNotificationSet.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "numberOfLinkedEmployerUsers", n => { NumberOfLinkedEmployerUsers = n.GetIntValue(); } },
+                { "properties", n => { Properties = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -63,8 +72,11 @@ namespace Loket.Api.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("code", Code);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.WithNotificationSet>("notifications", Notifications);
+            writer.WriteGuidValue("id", Id);
+            writer.WriteCollectionOfPrimitiveValues<string>("properties", Properties);
+            writer.WriteStringValue("type", Type);
         }
     }
 }

@@ -100,11 +100,11 @@ namespace Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedle
         /// <exception cref="global::Loket.Api.Client.Models.Yearsofservicebasedleave403Error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse?> PostAsYearsofservicebasedleavePostResponseAsync(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse?> PostAsYearsofservicebasedleavePostResponseAsync(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse> PostAsYearsofservicebasedleavePostResponseAsync(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse> PostAsYearsofservicebasedleavePostResponseAsync(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -130,11 +130,11 @@ namespace Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedle
         [Obsolete("This method is obsolete. Use PostAsYearsofservicebasedleavePostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse?> PostAsync(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse?> PostAsync(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse> PostAsync(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse> PostAsync(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -174,11 +174,11 @@ namespace Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedle
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

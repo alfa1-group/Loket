@@ -93,10 +93,10 @@ namespace Loket.Api.Client.Models
         /// <summary>The workingHoursData property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours? WorkingHoursData { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours? WorkingHoursData { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours WorkingHoursData { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours WorkingHoursData { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -128,7 +128,7 @@ namespace Loket.Api.Client.Models
                 { "socialSecurityData", n => { SocialSecurityData = n.GetObjectValue<global::Loket.Api.Client.Models.SocialSecurity>(global::Loket.Api.Client.Models.SocialSecurity.CreateFromDiscriminatorValue); } },
                 { "uniqueName", n => { UniqueName = n.GetStringValue(); } },
                 { "wageData", n => { WageData = n.GetObjectValue<global::Loket.Api.Client.Models.Wage>(global::Loket.Api.Client.Models.Wage.CreateFromDiscriminatorValue); } },
-                { "workingHoursData", n => { WorkingHoursData = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours>(global::Loket.Api.Client.Models.Workinghours.CreateFromDiscriminatorValue); } },
+                { "workingHoursData", n => { WorkingHoursData = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours>(global::Loket.Api.Client.Models.WorkingHours.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -146,7 +146,7 @@ namespace Loket.Api.Client.Models
             writer.WriteObjectValue<global::Loket.Api.Client.Models.SocialSecurity>("socialSecurityData", SocialSecurityData);
             writer.WriteStringValue("uniqueName", UniqueName);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.Wage>("wageData", WageData);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours>("workingHoursData", WorkingHoursData);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours>("workingHoursData", WorkingHoursData);
         }
     }
 }

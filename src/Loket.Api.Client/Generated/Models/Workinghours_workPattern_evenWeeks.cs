@@ -9,7 +9,7 @@ namespace Loket.Api.Client.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Workinghours_workPattern_evenWeeks : IParsable
+    public partial class WorkingHours_workPattern_evenWeeks : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The friday property</summary>
@@ -29,12 +29,12 @@ namespace Loket.Api.Client.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.Workinghours_workPattern_evenWeeks"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.WorkingHours_workPattern_evenWeeks"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.Workinghours_workPattern_evenWeeks CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.WorkingHours_workPattern_evenWeeks CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.Workinghours_workPattern_evenWeeks();
+            return new global::Loket.Api.Client.Models.WorkingHours_workPattern_evenWeeks();
         }
         /// <summary>
         /// The deserialization information for the current model

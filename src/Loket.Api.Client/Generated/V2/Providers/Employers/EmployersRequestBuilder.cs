@@ -18,7 +18,7 @@ using Loket.Api.Client.V2.Providers.Employers.Employmenttemplates;
 using Loket.Api.Client.V2.Providers.Employers.Functions;
 using Loket.Api.Client.V2.Providers.Employers.Item;
 using Loket.Api.Client.V2.Providers.Employers.Lastmodifiedversionnumbers;
-using Loket.Api.Client.V2.Providers.Employers.Leavepolicies;
+using Loket.Api.Client.V2.Providers.Employers.LeavePolicies;
 using Loket.Api.Client.V2.Providers.Employers.Minimized;
 using Loket.Api.Client.V2.Providers.Employers.Nonpayrolladministrations;
 using Loket.Api.Client.V2.Providers.Employers.Notes;
@@ -125,9 +125,9 @@ namespace Loket.Api.Client.V2.Providers.Employers
             get => new global::Loket.Api.Client.V2.Providers.Employers.Lastmodifiedversionnumbers.LastmodifiedversionnumbersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The leavePolicies property</summary>
-        public global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.LeavepoliciesRequestBuilder LeavePolicies
+        public global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.LeavePoliciesRequestBuilder LeavePolicies
         {
-            get => new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.LeavepoliciesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.LeavePoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The minimized property</summary>
         public global::Loket.Api.Client.V2.Providers.Employers.Minimized.MinimizedRequestBuilder Minimized

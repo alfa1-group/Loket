@@ -6,7 +6,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Agebasedleave.Item
+namespace Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Agebasedleave.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
@@ -16,10 +16,10 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Agebasedleave.It
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.AgeBasedLeave? Content { get; set; }
+        public global::Loket.Api.Client.Models.Agebasedleave? Content { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.AgeBasedLeave Content { get; set; }
+        public global::Loket.Api.Client.Models.Agebasedleave Content { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,12 +40,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Agebasedleave.It
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Agebasedleave.Item.WithAgeBasedLeaveGetResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Agebasedleave.Item.WithAgeBasedLeaveGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Agebasedleave.Item.WithAgeBasedLeaveGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Agebasedleave.Item.WithAgeBasedLeaveGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Agebasedleave.Item.WithAgeBasedLeaveGetResponse();
+            return new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Agebasedleave.Item.WithAgeBasedLeaveGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Agebasedleave.It
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.AgeBasedLeave>(global::Loket.Api.Client.Models.AgeBasedLeave.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.Agebasedleave>(global::Loket.Api.Client.Models.Agebasedleave.CreateFromDiscriminatorValue); } },
                 { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.WithAgeBasedLeave>(global::Loket.Api.Client.Models.WithAgeBasedLeave.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Loket.Api.Client.Models.VersionObject1>(global::Loket.Api.Client.Models.VersionObject1.CreateFromDiscriminatorValue); } },
             };
@@ -67,7 +67,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Agebasedleave.It
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.AgeBasedLeave>("content", Content);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Agebasedleave>("content", Content);
             writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.WithAgeBasedLeave>("messages", Messages);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.VersionObject1>("version", Version);
         }

@@ -9,7 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave
+namespace Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave
 {
     /// <summary>
     /// Builds and executes requests for operations under \v2\providers\employers\leavePolicies\{leavePolicyId}\yearsofservicebasedleave
@@ -18,7 +18,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
     public partial class YearsofservicebasedleaveRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +36,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetYearsOfServiceBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetYearsOfServiceBasedLeaveByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the years of service based leave for the given leave policy.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Loket.Api.Client.Models.Yearsofservicebasedleave400Error">When receiving a 400 status code</exception>
@@ -44,11 +44,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         /// <exception cref="global::Loket.Api.Client.Models.Yearsofservicebasedleave403Error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse?> GetAsYearsofservicebasedleaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse?> GetAsYearsofservicebasedleaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse> GetAsYearsofservicebasedleaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse> GetAsYearsofservicebasedleaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -58,12 +58,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
                 { "401", global::Loket.Api.Client.Models.Yearsofservicebasedleave401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.Yearsofservicebasedleave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetYearsOfServiceBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetYearsOfServiceBasedLeaveByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the years of service based leave for the given leave policy.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Loket.Api.Client.Models.Yearsofservicebasedleave400Error">When receiving a 400 status code</exception>
@@ -72,11 +72,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         [Obsolete("This method is obsolete. Use GetAsYearsofservicebasedleaveGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse?> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse?> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -86,12 +86,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
                 { "401", global::Loket.Api.Client.Models.Yearsofservicebasedleave401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.Yearsofservicebasedleave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/PostYearsOfServiceBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;PostYearsOfServiceBasedLeaveByLeavePolicyId&lt;/a&gt;Add a years of service based leave 
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,11 +100,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         /// <exception cref="global::Loket.Api.Client.Models.Yearsofservicebasedleave403Error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse?> PostAsYearsofservicebasedleavePostResponseAsync(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse?> PostAsYearsofservicebasedleavePostResponseAsync(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse> PostAsYearsofservicebasedleavePostResponseAsync(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse> PostAsYearsofservicebasedleavePostResponseAsync(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -115,12 +115,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
                 { "401", global::Loket.Api.Client.Models.Yearsofservicebasedleave401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.Yearsofservicebasedleave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleavePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/PostYearsOfServiceBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;PostYearsOfServiceBasedLeaveByLeavePolicyId&lt;/a&gt;Add a years of service based leave 
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -130,11 +130,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         [Obsolete("This method is obsolete. Use PostAsYearsofservicebasedleavePostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse?> PostAsync(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse?> PostAsync(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse> PostAsync(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse> PostAsync(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -145,7 +145,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
                 { "401", global::Loket.Api.Client.Models.Yearsofservicebasedleave401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.Yearsofservicebasedleave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetYearsOfServiceBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetYearsOfServiceBasedLeaveByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the years of service based leave for the given leave policy.
@@ -154,11 +154,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -174,11 +174,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.Yearsofservicebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -191,11 +191,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder WithUrl(string rawUrl)
+        public global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetYearsOfServiceBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetYearsOfServiceBasedLeaveByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the years of service based leave for the given leave policy.
@@ -235,7 +235,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofserv
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class YearsofservicebasedleaveRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>
+        public partial class YearsofservicebasedleaveRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Yearsofservicebasedleave.YearsofservicebasedleaveRequestBuilder.YearsofservicebasedleaveRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

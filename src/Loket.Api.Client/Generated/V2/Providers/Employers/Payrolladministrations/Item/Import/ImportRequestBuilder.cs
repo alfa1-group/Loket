@@ -14,7 +14,7 @@ using System;
 namespace Loket.Api.Client.V2.Providers.Employers.Payrolladministrations.Item.Import
 {
     /// <summary>
-    /// Builds and executes requests for operations under \v2\providers\employers\payrolladministrations\{payrollAdministrationId}\import
+    /// Builds and executes requests for operations under \v2\providers\employers\payrollAdministrations\{payrollAdministrationId}\import
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ImportRequestBuilder : BaseRequestBuilder
@@ -49,7 +49,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Payrolladministrations.Item.Im
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ImportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/providers/employers/payrolladministrations/{payrollAdministrationId}/import", pathParameters)
+        public ImportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/providers/employers/payrollAdministrations/{payrollAdministrationId}/import", pathParameters)
         {
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Payrolladministrations.Item.Im
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ImportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/providers/employers/payrolladministrations/{payrollAdministrationId}/import", rawUrl)
+        public ImportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/providers/employers/payrollAdministrations/{payrollAdministrationId}/import", rawUrl)
         {
         }
     }

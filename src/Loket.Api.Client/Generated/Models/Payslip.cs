@@ -12,33 +12,67 @@ namespace Loket.Api.Client.Models
     public partial class Payslip : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Identifying code for the message</summary>
-        public int? Code { get; set; }
-        /// <summary>Describes the message</summary>
+        /// <summary>The location of the address on the payslip.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public global::Loket.Api.Client.Models.Payslip_addressLocation? AddressLocation { get; set; }
 #nullable restore
 #else
-        public string Description { get; set; }
+        public global::Loket.Api.Client.Models.Payslip_addressLocation AddressLocation { get; set; }
 #endif
-        /// <summary>In some cases when the message may relate to a specific entity, or specific group of entities, this field provides the identifier of that entity </summary>
-        public Guid? Id { get; set; }
-        /// <summary>An array that can contain additional information</summary>
+        /// <summary>Display department on the payslip (yes or no).</summary>
+        public bool? DisplayDepartment { get; set; }
+        /// <summary>Display pay scale on the payslip (yes or no).</summary>
+        public bool? DisplaydisplayPayScale { get; set; }
+        /// <summary>Display salutation on the payslip (yes or no).</summary>
+        public bool? DisplaySalutation { get; set; }
+        /// <summary>The way the employee name is displayed on the payslip</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Properties { get; set; }
+        public global::Loket.Api.Client.Models.Payslip_employeeNameDisplayMethod? EmployeeNameDisplayMethod { get; set; }
 #nullable restore
 #else
-        public List<string> Properties { get; set; }
+        public global::Loket.Api.Client.Models.Payslip_employeeNameDisplayMethod EmployeeNameDisplayMethod { get; set; }
 #endif
-        /// <summary>Indication of the type of message.See [the general documentation for more information](./#section/Response/Messages)</summary>
+        /// <summary>The employee identification to use on the payslip.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public global::Loket.Api.Client.Models.Payslip_employeeNumberDisplayMethod? EmployeeNumberDisplayMethod { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public global::Loket.Api.Client.Models.Payslip_employeeNumberDisplayMethod EmployeeNumberDisplayMethod { get; set; }
+#endif
+        /// <summary>The employment start date to use on the payslip.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Loket.Api.Client.Models.Payslip_employmentStartDateDisplayMethod? EmploymentStartDateDisplayMethod { get; set; }
+#nullable restore
+#else
+        public global::Loket.Api.Client.Models.Payslip_employmentStartDateDisplayMethod EmploymentStartDateDisplayMethod { get; set; }
+#endif
+        /// <summary>The way the function is displayed on the payslip</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Loket.Api.Client.Models.Payslip_functionDisplayMethod? FunctionDisplayMethod { get; set; }
+#nullable restore
+#else
+        public global::Loket.Api.Client.Models.Payslip_functionDisplayMethod FunctionDisplayMethod { get; set; }
+#endif
+        /// <summary>The way the hourly wage is displayed on the payslip</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Loket.Api.Client.Models.Payslip_hourlyWageDisplayMethod? HourlyWageDisplayMethod { get; set; }
+#nullable restore
+#else
+        public global::Loket.Api.Client.Models.Payslip_hourlyWageDisplayMethod HourlyWageDisplayMethod { get; set; }
+#endif
+        /// <summary>The template of the payslip. This is a metadata field within the provider context. Possible values can be managed by the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Loket.Api.Client.Models.Payslip_template? Template { get; set; }
+#nullable restore
+#else
+        public global::Loket.Api.Client.Models.Payslip_template Template { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -58,11 +92,16 @@ namespace Loket.Api.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetIntValue(); } },
-                { "description", n => { Description = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "properties", n => { Properties = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "addressLocation", n => { AddressLocation = n.GetObjectValue<global::Loket.Api.Client.Models.Payslip_addressLocation>(global::Loket.Api.Client.Models.Payslip_addressLocation.CreateFromDiscriminatorValue); } },
+                { "displayDepartment", n => { DisplayDepartment = n.GetBoolValue(); } },
+                { "displaySalutation", n => { DisplaySalutation = n.GetBoolValue(); } },
+                { "displaydisplayPayScale", n => { DisplaydisplayPayScale = n.GetBoolValue(); } },
+                { "employeeNameDisplayMethod", n => { EmployeeNameDisplayMethod = n.GetObjectValue<global::Loket.Api.Client.Models.Payslip_employeeNameDisplayMethod>(global::Loket.Api.Client.Models.Payslip_employeeNameDisplayMethod.CreateFromDiscriminatorValue); } },
+                { "employeeNumberDisplayMethod", n => { EmployeeNumberDisplayMethod = n.GetObjectValue<global::Loket.Api.Client.Models.Payslip_employeeNumberDisplayMethod>(global::Loket.Api.Client.Models.Payslip_employeeNumberDisplayMethod.CreateFromDiscriminatorValue); } },
+                { "employmentStartDateDisplayMethod", n => { EmploymentStartDateDisplayMethod = n.GetObjectValue<global::Loket.Api.Client.Models.Payslip_employmentStartDateDisplayMethod>(global::Loket.Api.Client.Models.Payslip_employmentStartDateDisplayMethod.CreateFromDiscriminatorValue); } },
+                { "functionDisplayMethod", n => { FunctionDisplayMethod = n.GetObjectValue<global::Loket.Api.Client.Models.Payslip_functionDisplayMethod>(global::Loket.Api.Client.Models.Payslip_functionDisplayMethod.CreateFromDiscriminatorValue); } },
+                { "hourlyWageDisplayMethod", n => { HourlyWageDisplayMethod = n.GetObjectValue<global::Loket.Api.Client.Models.Payslip_hourlyWageDisplayMethod>(global::Loket.Api.Client.Models.Payslip_hourlyWageDisplayMethod.CreateFromDiscriminatorValue); } },
+                { "template", n => { Template = n.GetObjectValue<global::Loket.Api.Client.Models.Payslip_template>(global::Loket.Api.Client.Models.Payslip_template.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -72,11 +111,16 @@ namespace Loket.Api.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("code", Code);
-            writer.WriteStringValue("description", Description);
-            writer.WriteGuidValue("id", Id);
-            writer.WriteCollectionOfPrimitiveValues<string>("properties", Properties);
-            writer.WriteStringValue("type", Type);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Payslip_addressLocation>("addressLocation", AddressLocation);
+            writer.WriteBoolValue("displayDepartment", DisplayDepartment);
+            writer.WriteBoolValue("displaydisplayPayScale", DisplaydisplayPayScale);
+            writer.WriteBoolValue("displaySalutation", DisplaySalutation);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Payslip_employeeNameDisplayMethod>("employeeNameDisplayMethod", EmployeeNameDisplayMethod);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Payslip_employeeNumberDisplayMethod>("employeeNumberDisplayMethod", EmployeeNumberDisplayMethod);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Payslip_employmentStartDateDisplayMethod>("employmentStartDateDisplayMethod", EmploymentStartDateDisplayMethod);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Payslip_functionDisplayMethod>("functionDisplayMethod", FunctionDisplayMethod);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Payslip_hourlyWageDisplayMethod>("hourlyWageDisplayMethod", HourlyWageDisplayMethod);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Payslip_template>("template", Template);
         }
     }
 }

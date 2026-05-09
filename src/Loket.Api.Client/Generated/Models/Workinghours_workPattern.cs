@@ -11,33 +11,33 @@ namespace Loket.Api.Client.Models
     /// The applicable work pattern for a period of 2 weeks can be stored in this object. Each field contains the number of work hours for that day in the 2-week period. &lt;br /&gt; Please note that the workPattern should be left NULL if no data is present (as opposed to filling all fields with 0) &lt;br /&gt; Each field represent the number of hours the employee normally works on that day.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Workinghours_workPattern : IParsable
+    public partial class WorkingHours_workPattern : IParsable
     {
         /// <summary>The evenWeeks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours_workPattern_evenWeeks? EvenWeeks { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_workPattern_evenWeeks? EvenWeeks { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours_workPattern_evenWeeks EvenWeeks { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_workPattern_evenWeeks EvenWeeks { get; set; }
 #endif
         /// <summary>The oddWeeks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours_workPattern_oddWeeks? OddWeeks { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_workPattern_oddWeeks? OddWeeks { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours_workPattern_oddWeeks OddWeeks { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours_workPattern_oddWeeks OddWeeks { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.Workinghours_workPattern"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.WorkingHours_workPattern"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.Workinghours_workPattern CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.WorkingHours_workPattern CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.Workinghours_workPattern();
+            return new global::Loket.Api.Client.Models.WorkingHours_workPattern();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,8 +47,8 @@ namespace Loket.Api.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "evenWeeks", n => { EvenWeeks = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours_workPattern_evenWeeks>(global::Loket.Api.Client.Models.Workinghours_workPattern_evenWeeks.CreateFromDiscriminatorValue); } },
-                { "oddWeeks", n => { OddWeeks = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours_workPattern_oddWeeks>(global::Loket.Api.Client.Models.Workinghours_workPattern_oddWeeks.CreateFromDiscriminatorValue); } },
+                { "evenWeeks", n => { EvenWeeks = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours_workPattern_evenWeeks>(global::Loket.Api.Client.Models.WorkingHours_workPattern_evenWeeks.CreateFromDiscriminatorValue); } },
+                { "oddWeeks", n => { OddWeeks = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours_workPattern_oddWeeks>(global::Loket.Api.Client.Models.WorkingHours_workPattern_oddWeeks.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,8 +58,8 @@ namespace Loket.Api.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours_workPattern_evenWeeks>("evenWeeks", EvenWeeks);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours_workPattern_oddWeeks>("oddWeeks", OddWeeks);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours_workPattern_evenWeeks>("evenWeeks", EvenWeeks);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours_workPattern_oddWeeks>("oddWeeks", OddWeeks);
         }
     }
 }

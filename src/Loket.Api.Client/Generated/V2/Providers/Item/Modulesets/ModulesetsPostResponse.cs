@@ -16,18 +16,18 @@ namespace Loket.Api.Client.V2.Providers.Item.Modulesets
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.ModuleSets? Content { get; set; }
+        public global::Loket.Api.Client.Models.Modulesets? Content { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.ModuleSets Content { get; set; }
+        public global::Loket.Api.Client.Models.Modulesets Content { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.ModuleSets>? Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Modulesets>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.ModuleSets> Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Modulesets> Messages { get; set; }
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,8 +55,8 @@ namespace Loket.Api.Client.V2.Providers.Item.Modulesets
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.ModuleSets>(global::Loket.Api.Client.Models.ModuleSets.CreateFromDiscriminatorValue); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.ModuleSets>(global::Loket.Api.Client.Models.ModuleSets.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.Modulesets>(global::Loket.Api.Client.Models.Modulesets.CreateFromDiscriminatorValue); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Modulesets>(global::Loket.Api.Client.Models.Modulesets.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Loket.Api.Client.Models.VersionObject1>(global::Loket.Api.Client.Models.VersionObject1.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,8 +67,8 @@ namespace Loket.Api.Client.V2.Providers.Item.Modulesets
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.ModuleSets>("content", Content);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.ModuleSets>("messages", Messages);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Modulesets>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Modulesets>("messages", Messages);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.VersionObject1>("version", Version);
         }
     }

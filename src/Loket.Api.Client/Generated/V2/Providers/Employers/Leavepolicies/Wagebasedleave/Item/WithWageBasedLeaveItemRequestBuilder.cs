@@ -9,7 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item
+namespace Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item
 {
     /// <summary>
     /// Builds and executes requests for operations under \v2\providers\employers\leavePolicies\wagebasedleave\{wageBasedLeaveId}
@@ -18,7 +18,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
     public partial class WithWageBasedLeaveItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +36,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/DeleteWageBasedLeaveByWageBasedLeaveId&quot; target=&quot;_blank&quot;&gt;DeleteWageBasedLeaveByWageBasedLeaveId&lt;/a&gt;Delete a wage based leave record
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Loket.Api.Client.Models.WithWageBasedLeave400Error">When receiving a 400 status code</exception>
@@ -44,11 +44,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         /// <exception cref="global::Loket.Api.Client.Models.WithWageBasedLeave403Error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse?> DeleteAsWithWageBasedLeaveDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse?> DeleteAsWithWageBasedLeaveDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse> DeleteAsWithWageBasedLeaveDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse> DeleteAsWithWageBasedLeaveDeleteResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -58,12 +58,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
                 { "401", global::Loket.Api.Client.Models.WithWageBasedLeave401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.WithWageBasedLeave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/DeleteWageBasedLeaveByWageBasedLeaveId&quot; target=&quot;_blank&quot;&gt;DeleteWageBasedLeaveByWageBasedLeaveId&lt;/a&gt;Delete a wage based leave record
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Loket.Api.Client.Models.WithWageBasedLeave400Error">When receiving a 400 status code</exception>
@@ -72,11 +72,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         [Obsolete("This method is obsolete. Use DeleteAsWithWageBasedLeaveDeleteResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -86,12 +86,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
                 { "401", global::Loket.Api.Client.Models.WithWageBasedLeave401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.WithWageBasedLeave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket-ontw.nl/Activities/GetWageBasedLeaveByAgeBasedLeaveId&quot; target=&quot;_blank&quot;&gt;GetWageBasedLeaveByAgeBasedLeaveId&lt;/a&gt;Returns one leave wage based leave record
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Loket.Api.Client.Models.WithWageBasedLeave400Error">When receiving a 400 status code</exception>
@@ -99,11 +99,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         /// <exception cref="global::Loket.Api.Client.Models.WithWageBasedLeave403Error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse?> GetAsWithWageBasedLeaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse?> GetAsWithWageBasedLeaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse> GetAsWithWageBasedLeaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse> GetAsWithWageBasedLeaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -113,12 +113,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
                 { "401", global::Loket.Api.Client.Models.WithWageBasedLeave401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.WithWageBasedLeave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket-ontw.nl/Activities/GetWageBasedLeaveByAgeBasedLeaveId&quot; target=&quot;_blank&quot;&gt;GetWageBasedLeaveByAgeBasedLeaveId&lt;/a&gt;Returns one leave wage based leave record
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Loket.Api.Client.Models.WithWageBasedLeave400Error">When receiving a 400 status code</exception>
@@ -127,11 +127,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         [Obsolete("This method is obsolete. Use GetAsWithWageBasedLeaveGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse?> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse?> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -141,12 +141,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
                 { "401", global::Loket.Api.Client.Models.WithWageBasedLeave401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.WithWageBasedLeave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/PutWageBasedLeaveByWageBasedLeaveId&quot; target=&quot;_blank&quot;&gt;PutWageBasedLeaveByWageBasedLeaveId&lt;/a&gt;Edit the details of a wage based leave record
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -156,11 +156,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         /// <exception cref="global::Loket.Api.Client.Models.WithWageBasedLeave409Error">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse?> PutAsWithWageBasedLeavePutResponseAsync(global::Loket.Api.Client.Models.Wagebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse?> PutAsWithWageBasedLeavePutResponseAsync(global::Loket.Api.Client.Models.Wagebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse> PutAsWithWageBasedLeavePutResponseAsync(global::Loket.Api.Client.Models.Wagebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse> PutAsWithWageBasedLeavePutResponseAsync(global::Loket.Api.Client.Models.Wagebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -172,12 +172,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
                 { "403", global::Loket.Api.Client.Models.WithWageBasedLeave403Error.CreateFromDiscriminatorValue },
                 { "409", global::Loket.Api.Client.Models.WithWageBasedLeave409Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeavePutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/PutWageBasedLeaveByWageBasedLeaveId&quot; target=&quot;_blank&quot;&gt;PutWageBasedLeaveByWageBasedLeaveId&lt;/a&gt;Edit the details of a wage based leave record
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -188,11 +188,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         [Obsolete("This method is obsolete. Use PutAsWithWageBasedLeavePutResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse?> PutAsync(global::Loket.Api.Client.Models.Wagebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse?> PutAsync(global::Loket.Api.Client.Models.Wagebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse> PutAsync(global::Loket.Api.Client.Models.Wagebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse> PutAsync(global::Loket.Api.Client.Models.Wagebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -204,7 +204,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
                 { "403", global::Loket.Api.Client.Models.WithWageBasedLeave403Error.CreateFromDiscriminatorValue },
                 { "409", global::Loket.Api.Client.Models.WithWageBasedLeave409Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/DeleteWageBasedLeaveByWageBasedLeaveId&quot; target=&quot;_blank&quot;&gt;DeleteWageBasedLeaveByWageBasedLeaveId&lt;/a&gt;Delete a wage based leave record
@@ -232,11 +232,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -269,11 +269,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder WithUrl(string rawUrl)
+        public global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
@@ -321,7 +321,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.I
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithWageBasedLeaveItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>
+        public partial class WithWageBasedLeaveItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Wagebasedleave.Item.WithWageBasedLeaveItemRequestBuilder.WithWageBasedLeaveItemRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

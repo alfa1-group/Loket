@@ -10,7 +10,7 @@ namespace Loket.Api.Client.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AgeBasedLeave403Error : ApiException, IParsable
+    public partial class Agebasedleave403Error : ApiException, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The primary error message.</summary>
@@ -26,12 +26,12 @@ namespace Loket.Api.Client.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.AgeBasedLeave403Error"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.Agebasedleave403Error"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.AgeBasedLeave403Error CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.Agebasedleave403Error CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.AgeBasedLeave403Error();
+            return new global::Loket.Api.Client.Models.Agebasedleave403Error();
         }
         /// <summary>
         /// The deserialization information for the current model

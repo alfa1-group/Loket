@@ -16,18 +16,18 @@ namespace Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Item.Wor
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Workinghours? Content { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours? Content { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Workinghours Content { get; set; }
+        public global::Loket.Api.Client.Models.WorkingHours Content { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.Workinghours>? Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.WorkingHours>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.Workinghours> Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.WorkingHours> Messages { get; set; }
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,8 +55,8 @@ namespace Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Item.Wor
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.Workinghours>(global::Loket.Api.Client.Models.Workinghours.CreateFromDiscriminatorValue); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Workinghours>(global::Loket.Api.Client.Models.Workinghours.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.WorkingHours>(global::Loket.Api.Client.Models.WorkingHours.CreateFromDiscriminatorValue); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.WorkingHours>(global::Loket.Api.Client.Models.WorkingHours.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Loket.Api.Client.Models.VersionObject1>(global::Loket.Api.Client.Models.VersionObject1.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,8 +67,8 @@ namespace Loket.Api.Client.V2.Providers.Employers.Employees.Employments.Item.Wor
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Workinghours>("content", Content);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Workinghours>("messages", Messages);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.WorkingHours>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.WorkingHours>("messages", Messages);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.VersionObject1>("version", Version);
         }
     }

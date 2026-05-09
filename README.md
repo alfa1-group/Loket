@@ -28,6 +28,7 @@ var client = scope.ServiceProvider.GetRequiredService<LoketServiceClient>();
 
 var getProvidersReponse = await client.Providers.GetAsProvidersGetResponseAsync(x => {
     x.QueryParameters.PageSize = 99;
+    x.QueryParameters.OrderBy = OrderByBuilder<Provider>.OrderBy(p => p.Name).Build();
     x.QueryParameters.Filter = FilterBuilder<Provider>.Build(p => p.Name != "test");
 });
 

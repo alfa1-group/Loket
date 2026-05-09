@@ -9,12 +9,12 @@ public static class OrderByBuilder<T> where T : IParsable, new()
     public static IOrderedBuilder<T> OrderBy(Expression<Func<T, object?>> expression)
     {
         var propertyName = SelectBuilder<T>.GetPropertyName(expression);
-        return new OrderedBuilder<T>($"{propertyName} asc");
+        return new OrderedBuilder<T>(propertyName);
     }
 
     public static IOrderedBuilder<T> OrderByDescending(Expression<Func<T, object?>> expression)
     {
         var propertyName = SelectBuilder<T>.GetPropertyName(expression);
-        return new OrderedBuilder<T>($"{propertyName} desc");
+        return new OrderedBuilder<T>($"-{propertyName}");
     }
 }

@@ -16,18 +16,18 @@ namespace Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedle
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.YearsOfServiceBasedLeave? Content { get; set; }
+        public global::Loket.Api.Client.Models.Yearsofservicebasedleave? Content { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.YearsOfServiceBasedLeave Content { get; set; }
+        public global::Loket.Api.Client.Models.Yearsofservicebasedleave Content { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave>? Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Yearsofservicebasedleave>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave> Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Yearsofservicebasedleave> Messages { get; set; }
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,8 +55,8 @@ namespace Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedle
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave>(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave.CreateFromDiscriminatorValue); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave>(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.Yearsofservicebasedleave>(global::Loket.Api.Client.Models.Yearsofservicebasedleave.CreateFromDiscriminatorValue); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Yearsofservicebasedleave>(global::Loket.Api.Client.Models.Yearsofservicebasedleave.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Loket.Api.Client.Models.VersionObject1>(global::Loket.Api.Client.Models.VersionObject1.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,8 +67,8 @@ namespace Loket.Api.Client.V2.Providers.LeavePolicies.Item.Yearsofservicebasedle
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave>("content", Content);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave>("messages", Messages);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Yearsofservicebasedleave>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Yearsofservicebasedleave>("messages", Messages);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.VersionObject1>("version", Version);
         }
     }

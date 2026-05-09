@@ -9,7 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual
+namespace Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual
 {
     /// <summary>
     /// Builds and executes requests for operations under \v2\providers\employers\leavepolicies\{leavePolicyId}\employments\leave\accrual
@@ -18,7 +18,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
     public partial class AccrualRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +36,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetLeavePolicyAccrualByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetLeavePolicyAccrualByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the accrual for each leave type for all employments within an employer that have accrual for the given leavepolicy.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualGetResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Loket.Api.Client.Models.Accrual400Error">When receiving a 400 status code</exception>
@@ -44,11 +44,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
         /// <exception cref="global::Loket.Api.Client.Models.Accrual403Error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualGetResponse?> GetAsAccrualGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualGetResponse?> GetAsAccrualGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualGetResponse> GetAsAccrualGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualGetResponse> GetAsAccrualGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -58,12 +58,12 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
                 { "401", global::Loket.Api.Client.Models.Accrual401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.Accrual403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualGetResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualGetResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetLeavePolicyAccrualByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetLeavePolicyAccrualByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the accrual for each leave type for all employments within an employer that have accrual for the given leavepolicy.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Loket.Api.Client.Models.Accrual400Error">When receiving a 400 status code</exception>
@@ -72,11 +72,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
         [Obsolete("This method is obsolete. Use GetAsAccrualGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualResponse?> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualResponse?> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualResponse> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualResponse> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -86,7 +86,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
                 { "401", global::Loket.Api.Client.Models.Accrual401Error.CreateFromDiscriminatorValue },
                 { "403", global::Loket.Api.Client.Models.Accrual403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetLeavePolicyAccrualByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetLeavePolicyAccrualByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the accrual for each leave type for all employments within an employer that have accrual for the given leavepolicy.
@@ -95,11 +95,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -110,11 +110,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder WithUrl(string rawUrl)
+        public global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetLeavePolicyAccrualByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetLeavePolicyAccrualByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the accrual for each leave type for all employments within an employer that have accrual for the given leavepolicy.
@@ -160,7 +160,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AccrualRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>
+        public partial class AccrualRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Employments.Leave.Accrual.AccrualRequestBuilder.AccrualRequestBuilderGetQueryParameters>
         {
         }
     }

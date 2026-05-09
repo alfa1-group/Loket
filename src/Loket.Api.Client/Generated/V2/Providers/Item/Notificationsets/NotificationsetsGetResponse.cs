@@ -18,18 +18,18 @@ namespace Loket.Api.Client.V2.Providers.Item.Notificationsets
         /// <summary>The embedded property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.NotificationSets>? Embedded { get; set; }
+        public List<global::Loket.Api.Client.Models.Notificationsets>? Embedded { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.NotificationSets> Embedded { get; set; }
+        public List<global::Loket.Api.Client.Models.Notificationsets> Embedded { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.NotificationSets>? Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Notificationsets>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.NotificationSets> Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Notificationsets> Messages { get; set; }
 #endif
         /// <summary>Number of records in the response</summary>
         public int? PageSize { get; set; }
@@ -64,8 +64,8 @@ namespace Loket.Api.Client.V2.Providers.Item.Notificationsets
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "currentPage", n => { CurrentPage = n.GetIntValue(); } },
-                { "_embedded", n => { Embedded = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.NotificationSets>(global::Loket.Api.Client.Models.NotificationSets.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.NotificationSets>(global::Loket.Api.Client.Models.NotificationSets.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "_embedded", n => { Embedded = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Notificationsets>(global::Loket.Api.Client.Models.Notificationsets.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Notificationsets>(global::Loket.Api.Client.Models.Notificationsets.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pageSize", n => { PageSize = n.GetIntValue(); } },
                 { "totalPages", n => { TotalPages = n.GetIntValue(); } },
                 { "totalSize", n => { TotalSize = n.GetIntValue(); } },
@@ -80,8 +80,8 @@ namespace Loket.Api.Client.V2.Providers.Item.Notificationsets
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("currentPage", CurrentPage);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.NotificationSets>("_embedded", Embedded);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.NotificationSets>("messages", Messages);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Notificationsets>("_embedded", Embedded);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Notificationsets>("messages", Messages);
             writer.WriteIntValue("pageSize", PageSize);
             writer.WriteIntValue("totalPages", TotalPages);
             writer.WriteIntValue("totalSize", TotalSize);

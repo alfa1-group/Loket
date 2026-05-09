@@ -11,7 +11,7 @@ namespace Loket.Api.Client.Models
     /// This field is specialy made for convenience stores. The field is the type of contract.`contractCode` is a metadata field within the employer context. Possible values can be managed by the user.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Workinghours_contractCode : IParsable
+    public partial class WorkingHours_contractCode : IParsable
     {
         /// <summary>The code property</summary>
         public int? Code { get; private set; }
@@ -28,12 +28,12 @@ namespace Loket.Api.Client.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.Workinghours_contractCode"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.WorkingHours_contractCode"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.Workinghours_contractCode CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.WorkingHours_contractCode CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.Workinghours_contractCode();
+            return new global::Loket.Api.Client.Models.WorkingHours_contractCode();
         }
         /// <summary>
         /// The deserialization information for the current model

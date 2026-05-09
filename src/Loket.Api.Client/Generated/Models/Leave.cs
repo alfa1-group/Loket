@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -13,63 +12,33 @@ namespace Loket.Api.Client.Models
     public partial class Leave : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The comment property</summary>
+        /// <summary>Identifying code for the message</summary>
+        public int? Code { get; set; }
+        /// <summary>Describes the message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Comment { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public string Comment { get; set; }
+        public string Description { get; set; }
 #endif
-        /// <summary>The end date of the leave requested (last day of the leave)</summary>
-        public Date? EndDate { get; set; }
-        /// <summary>The unique identifier of an object (GUID/UUID)</summary>
-        public Guid? Id { get; private set; }
-        /// <summary>Indicates whether the request is for accrual of leave.- false will result in a reduction of the employee&apos;s leave entitlement- true will result in an increase of the employee&apos;s leave entitlement</summary>
-        public bool? IsAccrual { get; set; }
-        /// <summary>The type of leave requested by the employee`leaveType` is a metadata field within the employer context. Possible values can be managed by the user.</summary>
+        /// <summary>In some cases when the message may relate to a specific entity, or specific group of entities, this field provides the identifier of that entity</summary>
+        public Guid? Id { get; set; }
+        /// <summary>An array that can contain additional information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Leave_leaveType? LeaveType { get; set; }
+        public List<string>? Properties { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Leave_leaveType LeaveType { get; set; }
+        public List<string> Properties { get; set; }
 #endif
-        /// <summary>The number of leave units requested</summary>
-        public double? NumberOfUnits { get; set; }
-        /// <summary>The origin property</summary>
+        /// <summary>Indication of the type of message.See [the general documentation for more information](./#section/Response/Messages)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.Leave_origin? Origin { get; private set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.Leave_origin Origin { get; private set; }
-#endif
-        /// <summary>Incase two leave records are linked to a single leave request the ID of the linked leave record is returned in this field. This is done because when deleting a leave record linked to a leave request the other leave record linked to that leave request is also deletedThe only functional scenario when this may occur is when a leave request is entered for leaveType 16 (Verlof). Depending on the leave balances, this might result in both a leave booking for Verlof (wettelijk) and Verlof (botenwettelijk).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Loket.Api.Client.Models.Leave_relatedLeave? RelatedLeave { get; private set; }
-#nullable restore
-#else
-        public global::Loket.Api.Client.Models.Leave_relatedLeave RelatedLeave { get; private set; }
-#endif
-        /// <summary>Incase that the leave record is the result of the approval of a leave request this value will be set to the ID of that leave request.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Loket.Api.Client.Models.Leave_relatedLeaveRequest? RelatedLeaveRequest { get; private set; }
-#nullable restore
-#else
-        public global::Loket.Api.Client.Models.Leave_relatedLeaveRequest RelatedLeaveRequest { get; private set; }
-#endif
-        /// <summary>The start date of the leave requested</summary>
-        public Date? StartDate { get; set; }
-        /// <summary>If known indicates what the unit type (hours or days) is for `numberOfUnits`. Otherwise the field will be null.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Loket.Api.Client.Models.Leave_unitType? UnitType { get; private set; }
-#nullable restore
-#else
-        public global::Loket.Api.Client.Models.Leave_unitType UnitType { get; private set; }
+        public string Type { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -89,17 +58,11 @@ namespace Loket.Api.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "comment", n => { Comment = n.GetStringValue(); } },
-                { "endDate", n => { EndDate = n.GetDateValue(); } },
+                { "code", n => { Code = n.GetIntValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "isAccrual", n => { IsAccrual = n.GetBoolValue(); } },
-                { "leaveType", n => { LeaveType = n.GetObjectValue<global::Loket.Api.Client.Models.Leave_leaveType>(global::Loket.Api.Client.Models.Leave_leaveType.CreateFromDiscriminatorValue); } },
-                { "numberOfUnits", n => { NumberOfUnits = n.GetDoubleValue(); } },
-                { "origin", n => { Origin = n.GetObjectValue<global::Loket.Api.Client.Models.Leave_origin>(global::Loket.Api.Client.Models.Leave_origin.CreateFromDiscriminatorValue); } },
-                { "relatedLeave", n => { RelatedLeave = n.GetObjectValue<global::Loket.Api.Client.Models.Leave_relatedLeave>(global::Loket.Api.Client.Models.Leave_relatedLeave.CreateFromDiscriminatorValue); } },
-                { "relatedLeaveRequest", n => { RelatedLeaveRequest = n.GetObjectValue<global::Loket.Api.Client.Models.Leave_relatedLeaveRequest>(global::Loket.Api.Client.Models.Leave_relatedLeaveRequest.CreateFromDiscriminatorValue); } },
-                { "startDate", n => { StartDate = n.GetDateValue(); } },
-                { "unitType", n => { UnitType = n.GetObjectValue<global::Loket.Api.Client.Models.Leave_unitType>(global::Loket.Api.Client.Models.Leave_unitType.CreateFromDiscriminatorValue); } },
+                { "properties", n => { Properties = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -109,12 +72,11 @@ namespace Loket.Api.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("comment", Comment);
-            writer.WriteDateValue("endDate", EndDate);
-            writer.WriteBoolValue("isAccrual", IsAccrual);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.Leave_leaveType>("leaveType", LeaveType);
-            writer.WriteDoubleValue("numberOfUnits", NumberOfUnits);
-            writer.WriteDateValue("startDate", StartDate);
+            writer.WriteIntValue("code", Code);
+            writer.WriteStringValue("description", Description);
+            writer.WriteGuidValue("id", Id);
+            writer.WriteCollectionOfPrimitiveValues<string>("properties", Properties);
+            writer.WriteStringValue("type", Type);
         }
     }
 }

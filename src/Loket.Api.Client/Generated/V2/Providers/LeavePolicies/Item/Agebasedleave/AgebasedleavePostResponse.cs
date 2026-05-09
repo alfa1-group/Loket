@@ -16,18 +16,18 @@ namespace Loket.Api.Client.V2.Providers.LeavePolicies.Item.Agebasedleave
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.AgeBasedLeave? Content { get; set; }
+        public global::Loket.Api.Client.Models.Agebasedleave? Content { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.AgeBasedLeave Content { get; set; }
+        public global::Loket.Api.Client.Models.Agebasedleave Content { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.AgeBasedLeave>? Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Agebasedleave>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.AgeBasedLeave> Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Agebasedleave> Messages { get; set; }
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,8 +55,8 @@ namespace Loket.Api.Client.V2.Providers.LeavePolicies.Item.Agebasedleave
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.AgeBasedLeave>(global::Loket.Api.Client.Models.AgeBasedLeave.CreateFromDiscriminatorValue); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.AgeBasedLeave>(global::Loket.Api.Client.Models.AgeBasedLeave.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.Agebasedleave>(global::Loket.Api.Client.Models.Agebasedleave.CreateFromDiscriminatorValue); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Agebasedleave>(global::Loket.Api.Client.Models.Agebasedleave.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Loket.Api.Client.Models.VersionObject1>(global::Loket.Api.Client.Models.VersionObject1.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,8 +67,8 @@ namespace Loket.Api.Client.V2.Providers.LeavePolicies.Item.Agebasedleave
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.AgeBasedLeave>("content", Content);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.AgeBasedLeave>("messages", Messages);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Agebasedleave>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Agebasedleave>("messages", Messages);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.VersionObject1>("version", Version);
         }
     }

@@ -16,18 +16,18 @@ namespace Loket.Api.Client.V2.Providers.Item.Authorizationsets
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.AuthorizationSets? Content { get; set; }
+        public global::Loket.Api.Client.Models.Authorizationsets? Content { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.AuthorizationSets Content { get; set; }
+        public global::Loket.Api.Client.Models.Authorizationsets Content { get; set; }
 #endif
         /// <summary>The messages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Loket.Api.Client.Models.AuthorizationSets>? Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Authorizationsets>? Messages { get; set; }
 #nullable restore
 #else
-        public List<global::Loket.Api.Client.Models.AuthorizationSets> Messages { get; set; }
+        public List<global::Loket.Api.Client.Models.Authorizationsets> Messages { get; set; }
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,8 +55,8 @@ namespace Loket.Api.Client.V2.Providers.Item.Authorizationsets
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.AuthorizationSets>(global::Loket.Api.Client.Models.AuthorizationSets.CreateFromDiscriminatorValue); } },
-                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.AuthorizationSets>(global::Loket.Api.Client.Models.AuthorizationSets.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "content", n => { Content = n.GetObjectValue<global::Loket.Api.Client.Models.Authorizationsets>(global::Loket.Api.Client.Models.Authorizationsets.CreateFromDiscriminatorValue); } },
+                { "messages", n => { Messages = n.GetCollectionOfObjectValues<global::Loket.Api.Client.Models.Authorizationsets>(global::Loket.Api.Client.Models.Authorizationsets.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Loket.Api.Client.Models.VersionObject1>(global::Loket.Api.Client.Models.VersionObject1.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,8 +67,8 @@ namespace Loket.Api.Client.V2.Providers.Item.Authorizationsets
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.AuthorizationSets>("content", Content);
-            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.AuthorizationSets>("messages", Messages);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Authorizationsets>("content", Content);
+            writer.WriteCollectionOfObjectValues<global::Loket.Api.Client.Models.Authorizationsets>("messages", Messages);
             writer.WriteObjectValue<global::Loket.Api.Client.Models.VersionObject1>("version", Version);
         }
     }

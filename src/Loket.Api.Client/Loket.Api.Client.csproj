@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.3" />
     <PackageReference Include="Microsoft.Kiota.Bundle" Version="2.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\Models\" />
+  </ItemGroup>
 </Project>

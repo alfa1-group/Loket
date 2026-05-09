@@ -11,7 +11,7 @@ namespace Loket.Api.Client.Models
     /// The field indicates the type of flexible contract. If not applicable, please set to NULL.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Workinghours_flexibleHoursContract : IParsable
+    public partial class WorkingHours_flexibleHoursContract : IParsable
     {
         /// <summary>The key property</summary>
         public int? Key { get; set; }
@@ -26,12 +26,12 @@ namespace Loket.Api.Client.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.Workinghours_flexibleHoursContract"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.WorkingHours_flexibleHoursContract"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.Workinghours_flexibleHoursContract CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.WorkingHours_flexibleHoursContract CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.Workinghours_flexibleHoursContract();
+            return new global::Loket.Api.Client.Models.WorkingHours_flexibleHoursContract();
         }
         /// <summary>
         /// The deserialization information for the current model

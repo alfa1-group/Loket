@@ -9,7 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave
+namespace Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave
 {
     /// <summary>
     /// Builds and executes requests for operations under \v2\providers\employers\leavePolicies\{leavePolicyId}\agebasedleave
@@ -18,7 +18,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
     public partial class AgebasedleaveRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -26,7 +26,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,116 +36,116 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetAgeBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetAgeBasedLeaveByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the age based leave for the given leave policy.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveGetResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave403Error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveGetResponse?> GetAsAgebasedleaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveGetResponse?> GetAsAgebasedleaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveGetResponse> GetAsAgebasedleaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveGetResponse> GetAsAgebasedleaveGetResponseAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Loket.Api.Client.Models.AgeBasedLeave400Error.CreateFromDiscriminatorValue },
-                { "401", global::Loket.Api.Client.Models.AgeBasedLeave401Error.CreateFromDiscriminatorValue },
-                { "403", global::Loket.Api.Client.Models.AgeBasedLeave403Error.CreateFromDiscriminatorValue },
+                { "400", global::Loket.Api.Client.Models.Agebasedleave400Error.CreateFromDiscriminatorValue },
+                { "401", global::Loket.Api.Client.Models.Agebasedleave401Error.CreateFromDiscriminatorValue },
+                { "403", global::Loket.Api.Client.Models.Agebasedleave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveGetResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveGetResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetAgeBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetAgeBasedLeaveByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the age based leave for the given leave policy.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave403Error">When receiving a 403 status code</exception>
         [Obsolete("This method is obsolete. Use GetAsAgebasedleaveGetResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse?> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse?> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse> GetAsync(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Loket.Api.Client.Models.AgeBasedLeave400Error.CreateFromDiscriminatorValue },
-                { "401", global::Loket.Api.Client.Models.AgeBasedLeave401Error.CreateFromDiscriminatorValue },
-                { "403", global::Loket.Api.Client.Models.AgeBasedLeave403Error.CreateFromDiscriminatorValue },
+                { "400", global::Loket.Api.Client.Models.Agebasedleave400Error.CreateFromDiscriminatorValue },
+                { "401", global::Loket.Api.Client.Models.Agebasedleave401Error.CreateFromDiscriminatorValue },
+                { "403", global::Loket.Api.Client.Models.Agebasedleave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/PostAgeBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;PostAgeBasedLeaveByLeavePolicyId&lt;/a&gt;Add an age based leave 
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleavePostResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleavePostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave403Error">When receiving a 403 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleavePostResponse?> PostAsAgebasedleavePostResponseAsync(global::Loket.Api.Client.Models.AgeBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleavePostResponse?> PostAsAgebasedleavePostResponseAsync(global::Loket.Api.Client.Models.Agebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleavePostResponse> PostAsAgebasedleavePostResponseAsync(global::Loket.Api.Client.Models.AgeBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleavePostResponse> PostAsAgebasedleavePostResponseAsync(global::Loket.Api.Client.Models.Agebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Loket.Api.Client.Models.AgeBasedLeave400Error.CreateFromDiscriminatorValue },
-                { "401", global::Loket.Api.Client.Models.AgeBasedLeave401Error.CreateFromDiscriminatorValue },
-                { "403", global::Loket.Api.Client.Models.AgeBasedLeave403Error.CreateFromDiscriminatorValue },
+                { "400", global::Loket.Api.Client.Models.Agebasedleave400Error.CreateFromDiscriminatorValue },
+                { "401", global::Loket.Api.Client.Models.Agebasedleave401Error.CreateFromDiscriminatorValue },
+                { "403", global::Loket.Api.Client.Models.Agebasedleave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleavePostResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleavePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleavePostResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleavePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/PostAgeBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;PostAgeBasedLeaveByLeavePolicyId&lt;/a&gt;Add an age based leave 
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Loket.Api.Client.Models.AgeBasedLeave403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Loket.Api.Client.Models.Agebasedleave403Error">When receiving a 403 status code</exception>
         [Obsolete("This method is obsolete. Use PostAsAgebasedleavePostResponseAsync instead.")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse?> PostAsync(global::Loket.Api.Client.Models.AgeBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse?> PostAsync(global::Loket.Api.Client.Models.Agebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse> PostAsync(global::Loket.Api.Client.Models.AgeBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse> PostAsync(global::Loket.Api.Client.Models.Agebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Loket.Api.Client.Models.AgeBasedLeave400Error.CreateFromDiscriminatorValue },
-                { "401", global::Loket.Api.Client.Models.AgeBasedLeave401Error.CreateFromDiscriminatorValue },
-                { "403", global::Loket.Api.Client.Models.AgeBasedLeave403Error.CreateFromDiscriminatorValue },
+                { "400", global::Loket.Api.Client.Models.Agebasedleave400Error.CreateFromDiscriminatorValue },
+                { "401", global::Loket.Api.Client.Models.Agebasedleave401Error.CreateFromDiscriminatorValue },
+                { "403", global::Loket.Api.Client.Models.Agebasedleave403Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse>(requestInfo, global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetAgeBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetAgeBasedLeaveByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the age based leave for the given leave policy.
@@ -154,11 +154,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -174,11 +174,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.AgeBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.Agebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.AgeBasedLeave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Loket.Api.Client.Models.Agebasedleave body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -191,11 +191,11 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder WithUrl(string rawUrl)
+        public global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// __Activity name :__ &lt;a href=&quot;https://developer.loket.nl/Activities/GetAgeBasedLeaveByLeavePolicyId&quot; target=&quot;_blank&quot;&gt;GetAgeBasedLeaveByLeavePolicyId&lt;/a&gt; &lt;br/&gt;  &lt;br/&gt;  Returns the age based leave for the given leave policy.
@@ -235,7 +235,7 @@ namespace Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedlea
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AgebasedleaveRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.Leavepolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>
+        public partial class AgebasedleaveRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Loket.Api.Client.V2.Providers.Employers.LeavePolicies.Item.Agebasedleave.AgebasedleaveRequestBuilder.AgebasedleaveRequestBuilderGetQueryParameters>
         {
         }
         /// <summary>

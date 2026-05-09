@@ -9,44 +9,46 @@ namespace Loket.Api.Client.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class YearsOfServiceBasedLeave : IParsable
+    public partial class Yearsofservicebasedleave : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The from property</summary>
+        /// <summary>Identifying code for the message</summary>
+        public int? Code { get; set; }
+        /// <summary>Describes the message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_from? From { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_from From { get; set; }
+        public string Description { get; set; }
 #endif
-        /// <summary>The unique identifier of an object (GUID/UUID)</summary>
-        public Guid? Id { get; private set; }
-        /// <summary>The leaveEntitlement property</summary>
+        /// <summary>In some cases when the message may relate to a specific entity, or specific group of entities, this field provides the identifier of that entity </summary>
+        public Guid? Id { get; set; }
+        /// <summary>An array that can contain additional information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_leaveEntitlement? LeaveEntitlement { get; set; }
+        public List<string>? Properties { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_leaveEntitlement LeaveEntitlement { get; set; }
+        public List<string> Properties { get; set; }
 #endif
-        /// <summary>The upToAndIncluding property</summary>
+        /// <summary>Indication of the type of message.See [the general documentation for more information](./#section/Response/Messages)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_upToAndIncluding? UpToAndIncluding { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_upToAndIncluding UpToAndIncluding { get; set; }
+        public string Type { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.YearsOfServiceBasedLeave"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.Yearsofservicebasedleave"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.YearsOfServiceBasedLeave CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.Yearsofservicebasedleave CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.YearsOfServiceBasedLeave();
+            return new global::Loket.Api.Client.Models.Yearsofservicebasedleave();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,10 +58,11 @@ namespace Loket.Api.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "from", n => { From = n.GetObjectValue<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_from>(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_from.CreateFromDiscriminatorValue); } },
+                { "code", n => { Code = n.GetIntValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "leaveEntitlement", n => { LeaveEntitlement = n.GetObjectValue<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_leaveEntitlement>(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_leaveEntitlement.CreateFromDiscriminatorValue); } },
-                { "upToAndIncluding", n => { UpToAndIncluding = n.GetObjectValue<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_upToAndIncluding>(global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_upToAndIncluding.CreateFromDiscriminatorValue); } },
+                { "properties", n => { Properties = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -69,9 +72,11 @@ namespace Loket.Api.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_from>("from", From);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_leaveEntitlement>("leaveEntitlement", LeaveEntitlement);
-            writer.WriteObjectValue<global::Loket.Api.Client.Models.YearsOfServiceBasedLeave_upToAndIncluding>("upToAndIncluding", UpToAndIncluding);
+            writer.WriteIntValue("code", Code);
+            writer.WriteStringValue("description", Description);
+            writer.WriteGuidValue("id", Id);
+            writer.WriteCollectionOfPrimitiveValues<string>("properties", Properties);
+            writer.WriteStringValue("type", Type);
         }
     }
 }

@@ -8,30 +8,30 @@ using System;
 namespace Loket.Api.Client.Models
 {
     /// <summary>
-    /// Indications in this objects determine whether specific values should be calculated based on the bi-weekly workPattern (specified in the `workPattern` object). Onderliggende elementen geven aan of specifieke waardes berekend moeten worden op basis van het twee wekelijks werkpatroon `workPattern`
+    /// Indications in this objects determine whether specific values should be calculated based on the bi-weekly workPattern (specified in the `workPattern` object).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Workinghours_calculateUsingWorkPattern : IParsable
+    public partial class WorkingHours_calculateUsingWorkPattern : IParsable
     {
-        /// <summary>Indicates whether the number of days of dailyrate should be calculated based on the workpattern. The number of days are normally calculated by the working hours.</summary>
+        /// <summary>Indicates whether the number of days of dailyrate should be calculated based on the workpattern. The number of days are normally calculated by the working hours.       </summary>
         public bool? DaysDailyRate { get; set; }
         /// <summary>Indication whether  the deviating hours per week and deviating SV-days per period are to be automatically calculated based on the workpattern. Please note (!) that any values in the deviatingHoursPerWeek and deviatingSvDaysPerPeriod fields (of this workingHours record) will be overwritten based on this calculation if true (and endDate=NULL)!</summary>
         public bool? DeviatingDaysAndHours { get; set; }
         /// <summary>Indicates whether the hours for the payrolling should be calculated based on the workpattern in broken periods. These are periods of in or out of service.</summary>
         public bool? HoursBrokenPeriod { get; set; }
-        /// <summary>Indicates whether the hours for the payrolling should be calculated based on the workpattern for regular periods.</summary>
-        public bool? HoursRegularPeriod { get; set; }
-        /// <summary>Indicates whether then leave balances (verlof) are to be calculated based on the workpattern.  If set to false and the user is not linked to a leave policy with `applyLeaveSchedule` set to true the following fields are used for the calculation `deviatingHoursPerWeek` if null `shift.fullTimeHoursPerWeek` is used</summary>
+        /// <summary>Indicates whether the hours for the payrolling should be calculated based on the workpattern for regular periods.         </summary>
+        public bool? HoursPeriod { get; set; }
+        /// <summary>Indicates whether then leave balances (verlof) are to be calculated based on the workpattern.</summary>
         public bool? LeaveHours { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Loket.Api.Client.Models.Workinghours_calculateUsingWorkPattern"/></returns>
+        /// <returns>A <see cref="global::Loket.Api.Client.Models.WorkingHours_calculateUsingWorkPattern"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Loket.Api.Client.Models.Workinghours_calculateUsingWorkPattern CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Loket.Api.Client.Models.WorkingHours_calculateUsingWorkPattern CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Loket.Api.Client.Models.Workinghours_calculateUsingWorkPattern();
+            return new global::Loket.Api.Client.Models.WorkingHours_calculateUsingWorkPattern();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace Loket.Api.Client.Models
                 { "daysDailyRate", n => { DaysDailyRate = n.GetBoolValue(); } },
                 { "deviatingDaysAndHours", n => { DeviatingDaysAndHours = n.GetBoolValue(); } },
                 { "hoursBrokenPeriod", n => { HoursBrokenPeriod = n.GetBoolValue(); } },
-                { "hoursRegularPeriod", n => { HoursRegularPeriod = n.GetBoolValue(); } },
+                { "hoursPeriod", n => { HoursPeriod = n.GetBoolValue(); } },
                 { "leaveHours", n => { LeaveHours = n.GetBoolValue(); } },
             };
         }
@@ -58,7 +58,7 @@ namespace Loket.Api.Client.Models
             writer.WriteBoolValue("daysDailyRate", DaysDailyRate);
             writer.WriteBoolValue("deviatingDaysAndHours", DeviatingDaysAndHours);
             writer.WriteBoolValue("hoursBrokenPeriod", HoursBrokenPeriod);
-            writer.WriteBoolValue("hoursRegularPeriod", HoursRegularPeriod);
+            writer.WriteBoolValue("hoursPeriod", HoursPeriod);
             writer.WriteBoolValue("leaveHours", LeaveHours);
         }
     }

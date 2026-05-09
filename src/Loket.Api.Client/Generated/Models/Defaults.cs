@@ -12,33 +12,55 @@ namespace Loket.Api.Client.Models
     public partial class Defaults : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Identifying code for the message</summary>
-        public int? Code { get; set; }
-        /// <summary>Describes the message</summary>
+        /// <summary>Indications in this objects determine whether specific values should be calculated based on the bi-weekly workPattern (specified in the `workPattern` object).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public global::Loket.Api.Client.Models.Defaults_calculateUsingWorkPattern? CalculateUsingWorkPattern { get; set; }
 #nullable restore
 #else
-        public string Description { get; set; }
+        public global::Loket.Api.Client.Models.Defaults_calculateUsingWorkPattern CalculateUsingWorkPattern { get; set; }
 #endif
-        /// <summary>In some cases when the message may relate to a specific entity, or specific group of entities, this field provides the identifier of that entity </summary>
-        public Guid? Id { get; set; }
-        /// <summary>An array that can contain additional information</summary>
+        /// <summary>The type of employment applicable for the employment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Properties { get; set; }
+        public global::Loket.Api.Client.Models.Defaults_employmentContractType? EmploymentContractType { get; set; }
 #nullable restore
 #else
-        public List<string> Properties { get; set; }
+        public global::Loket.Api.Client.Models.Defaults_employmentContractType EmploymentContractType { get; set; }
 #endif
-        /// <summary>Indication of the type of message.See [the general documentation for more information](./#section/Response/Messages)</summary>
+        /// <summary>A selection of pre defined durations for the employment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public global::Loket.Api.Client.Models.Defaults_employmentDurationType? EmploymentDurationType { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public global::Loket.Api.Client.Models.Defaults_employmentDurationType EmploymentDurationType { get; set; }
+#endif
+        /// <summary>Indicates whether the `grossWage` is an hourly wage or a Periodic wage. Periodic can represent a week, four weeks or a month. Which period is active for the employment can be found in wagePeriodType.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Loket.Api.Client.Models.Defaults_grossWageType? GrossWageType { get; set; }
+#nullable restore
+#else
+        public global::Loket.Api.Client.Models.Defaults_grossWageType GrossWageType { get; set; }
+#endif
+        /// <summary>Indicate if a Mdv (melding dienstverband) should be send.</summary>
+        public bool? MdvNotification { get; set; }
+        /// <summary>Indicates whether the net wage is an hourly wage or a periodic wage. Periodic can represent a week, four weeks or a month. Which period is active for the employment can be found in the payroll administration resource.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Loket.Api.Client.Models.Defaults_netWageType? NetWageType { get; set; }
+#nullable restore
+#else
+        public global::Loket.Api.Client.Models.Defaults_netWageType NetWageType { get; set; }
+#endif
+        /// <summary>A selection of pre defined employee-types for the employment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Loket.Api.Client.Models.Defaults_typeOfEmployee? TypeOfEmployee { get; set; }
+#nullable restore
+#else
+        public global::Loket.Api.Client.Models.Defaults_typeOfEmployee TypeOfEmployee { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -58,11 +80,13 @@ namespace Loket.Api.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetIntValue(); } },
-                { "description", n => { Description = n.GetStringValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "properties", n => { Properties = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "calculateUsingWorkPattern", n => { CalculateUsingWorkPattern = n.GetObjectValue<global::Loket.Api.Client.Models.Defaults_calculateUsingWorkPattern>(global::Loket.Api.Client.Models.Defaults_calculateUsingWorkPattern.CreateFromDiscriminatorValue); } },
+                { "employmentContractType", n => { EmploymentContractType = n.GetObjectValue<global::Loket.Api.Client.Models.Defaults_employmentContractType>(global::Loket.Api.Client.Models.Defaults_employmentContractType.CreateFromDiscriminatorValue); } },
+                { "employmentDurationType", n => { EmploymentDurationType = n.GetObjectValue<global::Loket.Api.Client.Models.Defaults_employmentDurationType>(global::Loket.Api.Client.Models.Defaults_employmentDurationType.CreateFromDiscriminatorValue); } },
+                { "grossWageType", n => { GrossWageType = n.GetObjectValue<global::Loket.Api.Client.Models.Defaults_grossWageType>(global::Loket.Api.Client.Models.Defaults_grossWageType.CreateFromDiscriminatorValue); } },
+                { "mdvNotification", n => { MdvNotification = n.GetBoolValue(); } },
+                { "netWageType", n => { NetWageType = n.GetObjectValue<global::Loket.Api.Client.Models.Defaults_netWageType>(global::Loket.Api.Client.Models.Defaults_netWageType.CreateFromDiscriminatorValue); } },
+                { "typeOfEmployee", n => { TypeOfEmployee = n.GetObjectValue<global::Loket.Api.Client.Models.Defaults_typeOfEmployee>(global::Loket.Api.Client.Models.Defaults_typeOfEmployee.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -72,11 +96,13 @@ namespace Loket.Api.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("code", Code);
-            writer.WriteStringValue("description", Description);
-            writer.WriteGuidValue("id", Id);
-            writer.WriteCollectionOfPrimitiveValues<string>("properties", Properties);
-            writer.WriteStringValue("type", Type);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Defaults_calculateUsingWorkPattern>("calculateUsingWorkPattern", CalculateUsingWorkPattern);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Defaults_employmentContractType>("employmentContractType", EmploymentContractType);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Defaults_employmentDurationType>("employmentDurationType", EmploymentDurationType);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Defaults_grossWageType>("grossWageType", GrossWageType);
+            writer.WriteBoolValue("mdvNotification", MdvNotification);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Defaults_netWageType>("netWageType", NetWageType);
+            writer.WriteObjectValue<global::Loket.Api.Client.Models.Defaults_typeOfEmployee>("typeOfEmployee", TypeOfEmployee);
         }
     }
 }
