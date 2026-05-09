@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Loket Authentication Token Storage using PostgreSQL</Description>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageTags>Exact;Loket;C#;APIs;Client;Authentication;Tokens;RefreshToken;Storage;SQL;PostgreSQL</PackageTags>
+    <PackageTags>Loket;C#;APIs;Client;Authentication;Tokens;RefreshToken;Storage;SQL;PostgreSQL</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
