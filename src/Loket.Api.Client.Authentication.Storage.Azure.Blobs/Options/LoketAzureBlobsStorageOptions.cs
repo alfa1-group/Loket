@@ -11,8 +11,8 @@ public class LoketAzureBlobsStorageOptions
     public string ContainerName { get; set; } = null!;
 
     [Required] 
-    public string RefreshTokenFilePath { get; set; } = "Loket/refreshtoken.txt";
+    public string RefreshTokenFilePath { get; set; } = "refreshtoken.txt";
 
     [Required]
-    public string AccessTokenFilePath { get; set; } = "Loket/accesstoken.txt";
+    public string AccessTokenFilePath { get; set; } = "accesstoken.txt";
 }

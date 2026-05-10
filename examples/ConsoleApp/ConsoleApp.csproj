@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Loket.Api.Client.Authentication.Kiota\Loket.Api.Client.Authentication.Kiota.csproj" />
-    <ProjectReference Include="..\..\src\Loket.Api.Client.Authentication.Storage.FileSystem\Loket.Api.Client.Authentication.Storage.FileSystem.csproj" />
+    <ProjectReference Include="..\..\src\Loket.Api.Client.Authentication.Storage.Azure.Blobs\Loket.Api.Client.Authentication.Storage.Azure.Blobs.csproj" />
     <ProjectReference Include="..\..\src\Loket.Api.Client\Loket.Api.Client.csproj" />
   </ItemGroup>
 
