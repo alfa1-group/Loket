@@ -12,7 +12,7 @@ var builder = Host.CreateDefaultBuilder(args)
         services
             .AddSingleton(TimeProvider.System)
             .AddLogging()
-            .AddLoketTokenStorageAzureBlobs(context.Configuration)
+            .AddTokenStorageAzureBlobs(context.Configuration)
             .AddLoketKiotaAuthentication(context.Configuration);
     });
 
