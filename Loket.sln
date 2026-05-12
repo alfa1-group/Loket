@@ -33,17 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loket.Api.Client", "src\Lok
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loket.Api.Client.Authentication", "src\Loket.Api.Client.Authentication\Loket.Api.Client.Authentication.csproj", "{DB7CB385-0E9F-A3E6-F8D0-BC2483C7EAD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loket.Api.Client.Authentication.Abstractions", "src\Loket.Api.Client.Authentication.Abstractions\Loket.Api.Client.Authentication.Abstractions.csproj", "{686EC371-ADB8-C89F-E7D6-58C3A17191DC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loket.Api.Client.Authentication.Kiota", "src\Loket.Api.Client.Authentication.Kiota\Loket.Api.Client.Authentication.Kiota.csproj", "{95C45D3D-CA84-903F-8C44-015B0E8E7E96}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loket.Api.Client.Authentication.Storage.Azure.Blobs", "src\Loket.Api.Client.Authentication.Storage.Azure.Blobs\Loket.Api.Client.Authentication.Storage.Azure.Blobs.csproj", "{1715DB8B-E3F8-F2DA-5A52-4A622D7FAE26}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loket.Api.Client.Authentication.Storage.FileSystem", "src\Loket.Api.Client.Authentication.Storage.FileSystem\Loket.Api.Client.Authentication.Storage.FileSystem.csproj", "{26C6E6ED-3C47-264E-431E-146A7985FEE3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loket.Api.Client.Authentication.Storage.PostgreSQL", "src\Loket.Api.Client.Authentication.Storage.PostgreSQL\Loket.Api.Client.Authentication.Storage.PostgreSQL.csproj", "{9CEA38C0-380F-77C1-CA66-CA98A679DE35}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loket.Api.Client.Authentication.Storage.SqlServer", "src\Loket.Api.Client.Authentication.Storage.SqlServer\Loket.Api.Client.Authentication.Storage.SqlServer.csproj", "{F9A2A20E-71C7-7C43-6BA9-9F38BEEEB2E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,30 +53,10 @@ Global
 		{DB7CB385-0E9F-A3E6-F8D0-BC2483C7EAD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB7CB385-0E9F-A3E6-F8D0-BC2483C7EAD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB7CB385-0E9F-A3E6-F8D0-BC2483C7EAD9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{686EC371-ADB8-C89F-E7D6-58C3A17191DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{686EC371-ADB8-C89F-E7D6-58C3A17191DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{686EC371-ADB8-C89F-E7D6-58C3A17191DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{686EC371-ADB8-C89F-E7D6-58C3A17191DC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95C45D3D-CA84-903F-8C44-015B0E8E7E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95C45D3D-CA84-903F-8C44-015B0E8E7E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95C45D3D-CA84-903F-8C44-015B0E8E7E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95C45D3D-CA84-903F-8C44-015B0E8E7E96}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1715DB8B-E3F8-F2DA-5A52-4A622D7FAE26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1715DB8B-E3F8-F2DA-5A52-4A622D7FAE26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1715DB8B-E3F8-F2DA-5A52-4A622D7FAE26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1715DB8B-E3F8-F2DA-5A52-4A622D7FAE26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26C6E6ED-3C47-264E-431E-146A7985FEE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26C6E6ED-3C47-264E-431E-146A7985FEE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26C6E6ED-3C47-264E-431E-146A7985FEE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26C6E6ED-3C47-264E-431E-146A7985FEE3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9CEA38C0-380F-77C1-CA66-CA98A679DE35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9CEA38C0-380F-77C1-CA66-CA98A679DE35}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9CEA38C0-380F-77C1-CA66-CA98A679DE35}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9CEA38C0-380F-77C1-CA66-CA98A679DE35}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9A2A20E-71C7-7C43-6BA9-9F38BEEEB2E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9A2A20E-71C7-7C43-6BA9-9F38BEEEB2E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9A2A20E-71C7-7C43-6BA9-9F38BEEEB2E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9A2A20E-71C7-7C43-6BA9-9F38BEEEB2E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,12 +65,7 @@ Global
 		{6593AF44-A596-CCF5-3363-0C2E74DFEE34} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{2D8D04BE-E9F6-DBB2-2FB9-E7F95816D05F} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{DB7CB385-0E9F-A3E6-F8D0-BC2483C7EAD9} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
-		{686EC371-ADB8-C89F-E7D6-58C3A17191DC} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 		{95C45D3D-CA84-903F-8C44-015B0E8E7E96} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
-		{1715DB8B-E3F8-F2DA-5A52-4A622D7FAE26} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
-		{26C6E6ED-3C47-264E-431E-146A7985FEE3} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
-		{9CEA38C0-380F-77C1-CA66-CA98A679DE35} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
-		{F9A2A20E-71C7-7C43-6BA9-9F38BEEEB2E4} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0828E0B1-F03B-47AB-B2E4-963753F033A3}

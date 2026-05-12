@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Alfa1.TokenStorage.Azure.Blobs" Version="0.0.1-preview-01" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
@@ -18,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Loket.Api.Client.Authentication.Kiota\Loket.Api.Client.Authentication.Kiota.csproj" />
-    <ProjectReference Include="..\..\src\Loket.Api.Client.Authentication.Storage.Azure.Blobs\Loket.Api.Client.Authentication.Storage.Azure.Blobs.csproj" />
     <ProjectReference Include="..\..\src\Loket.Api.Client\Loket.Api.Client.csproj" />
   </ItemGroup>
 

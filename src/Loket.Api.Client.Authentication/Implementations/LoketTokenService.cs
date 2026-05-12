@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
+using Alfa1.TokenStorage.Abstractions;
 using Duende.IdentityModel.Client;
-using Loket.Api.Client.Authentication.Abstractions;
 using Loket.Api.Client.Authentication.Interfaces;
 using Microsoft.Extensions.Logging;
 
@@ -8,7 +8,7 @@ namespace Loket.Api.Client.Authentication.Implementations;
 
 internal class LoketTokenService(
     ILogger<LoketTokenService> logger,
-    ILoketTokenStorageService tokenStorageService,
+    ITokenStorageService tokenStorageService,
     ILoketTokenClient LoketTokenClient) : ILoketTokenService
 {
     // Ensure that only one thread refreshes the tokens at a time

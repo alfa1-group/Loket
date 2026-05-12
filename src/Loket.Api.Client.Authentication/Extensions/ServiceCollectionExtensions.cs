@@ -1,4 +1,4 @@
-﻿using Loket.Api.Client.Authentication.Abstractions;
+﻿using Alfa1.TokenStorage.Abstractions;
 using Loket.Api.Client.Authentication.Implementations;
 using Loket.Api.Client.Authentication.Interfaces;
 using Loket.Api.Client.Authentication.Options;
@@ -29,9 +29,9 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<ILoketTokenClient, LoketTokenClient>();
         services.AddSingleton<ILoketTokenService, LoketTokenService>();
 
-        if (services.All(s => s.ServiceType != typeof(ILoketTokenStorageService)))
+        if (services.All(s => s.ServiceType != typeof(ITokenStorageService)))
         {
-            throw new InvalidOperationException($"An implementation for {nameof(ILoketTokenStorageService)} is required. Please register it in the service collection.");
+            throw new InvalidOperationException($"An implementation for {nameof(ITokenStorageService)} is required. Please register it in the service collection.");
         }
 
         return services;
