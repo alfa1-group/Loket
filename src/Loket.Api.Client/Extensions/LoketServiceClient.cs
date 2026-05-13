@@ -1,5 +1,6 @@
 ﻿using Microsoft.Kiota.Abstractions.Authentication;
 using Microsoft.Kiota.Http.HttpClientLibrary;
+using System.Net.Http;
 
 // ReSharper disable once CheckNamespace
 namespace Loket.Api.Client;
@@ -16,7 +17,9 @@ public partial class LoketServiceClient
 
     private static HttpClientRequestAdapter CreateHttpClientRequestAdapter(IAuthenticationProvider authenticationProvider)
     {
-        return new HttpClientRequestAdapter(authenticationProvider)
+        var httpClient = KiotaClientFactory.Create(new LoketVersionHeaderHandler());
+
+        return new HttpClientRequestAdapter(authenticationProvider, null, null, httpClient, null)
         {
             BaseUrl = DefaultBaseUrl
         };
