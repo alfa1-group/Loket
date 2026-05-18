@@ -17,7 +17,10 @@ public partial class LoketServiceClient
 
     private static HttpClientRequestAdapter CreateHttpClientRequestAdapter(IAuthenticationProvider authenticationProvider)
     {
-        var httpClient = KiotaClientFactory.Create(new LoketVersionHeaderHandler());
+        var httpClient = KiotaClientFactory.Create(new LoketVersionHeaderHandler
+        {
+            InnerHandler = new HttpClientHandler()
+        });
 
         return new HttpClientRequestAdapter(authenticationProvider, null, null, httpClient, null)
         {
