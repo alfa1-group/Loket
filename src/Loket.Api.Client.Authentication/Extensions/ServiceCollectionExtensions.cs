@@ -3,6 +3,7 @@ using Loket.Api.Client.Authentication.Implementations;
 using Loket.Api.Client.Authentication.Interfaces;
 using Loket.Api.Client.Authentication.Options;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
@@ -26,8 +27,8 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection AddServices(this IServiceCollection services)
     {
-        services.AddSingleton<ILoketTokenClient, LoketTokenClient>();
-        services.AddSingleton<ILoketTokenService, LoketTokenService>();
+        services.TryAddTransient<ILoketTokenClient, LoketTokenClient>();
+        services.TryAddTransient<ILoketTokenService, LoketTokenService>();
 
         if (services.All(s => s.ServiceType != typeof(ITokenStorageService)))
         {
